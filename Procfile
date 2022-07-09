@@ -1,1 +1,1 @@
-web: gunicorn for-the-love-of-food.wsgi
+web: gunicorn loveoffood.wsgi
