@@ -1,1 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:wght@100&display=swap');
+
+body {
+    font-family: Montserrat;
+    font-weight: 500;
+  
+}

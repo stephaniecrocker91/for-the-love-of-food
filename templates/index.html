@@ -14,16 +14,16 @@
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
-                {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                {% if "placeholder" in recipe.image.url %}
+                <img class="card-img-top" src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
                 {% else %}
-                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                <img class="card-img-top" src="{{ recipe.image.url }}">
                 {% endif %}
                 <div class="image-flash">
                   <p class="author">Author: {{ recipe.author }}</p>
                 </div>
               </div>
-              <a href="#" class="post-link">
+              <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                 <h2 class="card-title">{{ recipe.title }}</h2>
                 <p class="card-text">{{ recipe.category }}</p>
               </a>
