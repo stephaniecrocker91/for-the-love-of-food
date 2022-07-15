@@ -3,7 +3,6 @@ from django.views import generic, View
 from .models import Recipe
 from .forms import CommentForm
 
-
 # Create your views here.
 
 
@@ -49,6 +48,7 @@ class RecipeDetail(View):
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
+            comment_form.instance.recipe = recipe
             comment_form.save()
         else:
             comment_form = CommentForm()

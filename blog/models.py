@@ -1,4 +1,6 @@
 from django.db import models
+from django.template.defaultfilters import slugify
+
 # Import Django User Model and Cloudinary models.
 
 from django.contrib.auth.models import User
@@ -52,12 +54,19 @@ class Comment(models.Model):
     name = models.CharField(max_length=90)
     created_on = models.DateTimeField(auto_now_add=True)
     body = models.TextField()
+    # slug = models.SlugField(max_length=200, unique=True)
+    
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name} on {self.created_on}"
+
+    # def save(self, *args, **kwargs):
+    #     if not self.slug:
+    #         self.slug = slugify(self.body)
+    #     return super().save(*args, **kwargs)
 
 
 
