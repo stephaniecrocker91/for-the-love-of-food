@@ -18,8 +18,24 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i>{{ recipe.number_of_likes }} </strong>
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
+                                {% csrf_token %}
+
+                                {% if liked %}
+                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
+                                {% else %}
+                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}
+                            <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
+                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
@@ -31,21 +47,23 @@
                     </div>
                     <div class="col-1">
                         <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-bookmark"></i>{{ recipe.number_of_favourites }} </strong>
+                        <strong class="text-secondary"><i class="far fa-bookmark"></i>{{ recipe.number_of_favourites }}
+                        </strong>
                     </div>
                 </div>
                 <div class="col  mb-4  mt-3 left  top">
                     <div class="card-body">
-                <p class="post-ingredients card-text">{{ recipe.ingredients | safe }}</p>
+                        <p class="post-ingredients card-text">{{ recipe.ingredients | safe }}</p>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in recipe.image.url %}
-                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272" width="100%">
+                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272"
+                    width="100%">
                 {% else %}
                 <img src="{{ recipe.image.url }}" width="100%">
                 {% endif %}
@@ -65,7 +83,8 @@
 
                     <div class="col-1">
                         <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i>{{ recipe.number_of_likes }} </strong>
+                        <strong class="text-secondary"><i class="far fa-heart"></i>{{ recipe.number_of_likes }}
+                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
@@ -114,9 +133,9 @@
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
-                {{ comment_form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}
             </div>
