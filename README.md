@@ -77,141 +77,76 @@ STRUCTURE:
 
 * * *
 
-### Initial Game Load
+### Initial Home Page
 
 * * *
 
-#### _Header - Game Title_
 
-*   The Game title is displayed as soon as the game is launched. Minimalist uppercase green font: B A T T L E F I E L D S
-*   Player name is requested, which will be used though-out the game.
+*   LANDING PAGE: This is the page that initially loads when you first arrive at the site. 
+    * Navbar: FontAweseom Icon & Home, Register, and Login.
+    * Header: "For the Love of Food"
+    * Search feature. !!!!!?????
+    * You can immeditaley view the paginated list of recipe Posts.
 
 <img src="assets/images/homescreen.png" width="500px">
+
+*   Depending on wether the user is authenticated and logged in or not navbar may display: 
+    * FontAweseom Icon & Home, Register, and Login 
+    * FontAweseom Icon & Home, Favourites, and Logout 
+  
 
 
 * * * 
 
-### Menu Selection 
+### Recipe Details Page 
 
 * * *
 
-The initial M E N U section is simple, to the point and consists of 3 navigation options:
+When user clicks a specific Recipe Post:
 
-* 1 : Game Instructions
-* 2 : Launch Game
-* 3 : Exit Game
+* Nav Bar and Header continues at the top.
+* Recipe Title
+* Recipe Category
+* Recipe Author, date of publication and time.
+* View number of likes, comments and favourotes. User may click on like and favourite button here.
+* Recipe Image
+* Ingredients
+* Instructions
+* Comments section below: user may view comments (oldest at the top, scrolling down to newest), and comment posting as user name.
 
 
 <img src="assets/images/menu.png" width="500px">
 
 * * * 
   
-### Game Instructions 
+### Favourites Page 
 
 * * *
 
-When typing 1 into the terminal, the user is directed to this page consisting of game instructions.
+When clicking favourites, the user can view all their favourite posts.
 
-* This contains a header labelled I N S T R U C T I O N S. All section headers are displayed in a similar style (uppercase, gaps in between letters)
-* The instructions which are:
-    * Clear 
-    * Arranged in bullet points
-    * Separated into relevant sections.
-*The user must type M to return to the M E N U.
+* NavBar and Header
+* Sub-Header "Favourites"
+* Paginated list of favourite posts. Similar to the landing home page.
 
 <img src="assets/images/instructions.png" width="500px">
 
 * * * 
 
 
-### Exit Game
+### Create Recipe Page
 
 * * *
 
-From MENU, when typing 3 into the terminal, the user is directed to the EXIT GAME section.
+User can click on "Write my own Recipe" , which leads them to the following section..
 
-* This contains a header labelled QUIT GAME.
-* A few lines which aim to convince the user to stay on. The language challenges the user.
-* 2 options (user must type selection):
-    * Y to quit now : which leads to GAME OVER
-    * N to play game : which directs the user back to MENU
+* ^^^&&***(((((())))))
+* !!!!
+* !!!!!
 
 
 <img src="assets/images/exit1.png" width="500px">
   
-* * * 
-
-### Game Over 
-
-* * *
-
-From Q U I T  G A M E, when typing Y into the terminal, the user is directed to the G A M E  O V E R section
-
-This section simply displays the words G A M E  O V E R.
-
-<img src="assets/images/gameover.png" width="500px">
-
-
-### Grid Choice 
-
-* * *
-
-From MENU, when typing 2 into the terminal, player is navigated to Grid choice section
-
-* 5 x 5 --> 5
-* 8 x 8 --> 8
-* 12 x 12 --> 12
-* Enter user selection.
-
-
-<img src="assets/images/grid-selection.png" width="500px">
-
-
-* * *
-
-### Launch Game Rounds
-
-* * *
-
-From grid selection, the user is finally directed to the GAME section.
-This displays:
-* Header labelled T H E  B A T T L E F I E L D
-* The board grid:
-    * 5 x 5, 8 x 8 or 12 x 12
-    * Rows: A B C D E ...
-    * Columns: A B C D E ...
-    * Each cooridnate is represented by a .
-* Enter ROW input
-* Enter COLUMN input
-
-<img src="assets/images/round-1.png" width="500px">
-
-Once the user inputs both coordinates, the following options:
-* Result: 
-    * You sank a ship!
-    * You missed!
-    * You've already hit this target, Try again!!
-* Selection: Launch next missile?    
-    * Y - yes --> next round
-    * N - No (And a reminder, that if quitting, all advances will be lost)
-
-<img src="assets/images/round-2.png" width="500px">
-
-
-If selecting N, the user is directed to EXIT GAME section.
-
-* * *
-
-If selecting L:
-
-The layout remains the same.
-The grid has been updated.
-The coordinate previously selected will have:
-* "X" - hit ship
-* "-" - miss
-
-
-<img src="assets/images/round-3.png" width="500px">
 
 
 
@@ -287,10 +222,10 @@ FEATURES:
 
 ### Current features
 
-*   INTRODUCTION: This is the page that initially loads when you first arrive at the site. 
-    * Header: "B A T T L E F I E L D S"
-    * Player name input form (required, and validated before submitting):
-        This name is stored as a variable and used a number of times throughout the game. These personalised messages create a sense of familiarity with the user.
+*   LANDING PAGE: This is the page that initially loads when you first arrive at the site. 
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * You can immeditaley view the paginated 
 
 
   <img src="assets/images/name-1.png" width="500px"> 
