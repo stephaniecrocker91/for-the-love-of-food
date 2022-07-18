@@ -162,8 +162,8 @@ User can click on "Write my own Recipe" , which leads them to the following sect
 ## THE CODE:
 
 * * *
-
-Prior to commencing to write my code out, I planned out the functions required.
+!!!!!!!!!!!&&&&&^^^^^^^££££@@@@@@@
+Prior to commencing to write my code out, I planned out the .
 
 <img src="./assets/images/wireframes-functions.png" width="1000px">
 
@@ -339,9 +339,8 @@ FEATURES:
 
 ### Future features
 
-* Have 2 grids: one for the player to have their ships.
-* Allow player to select where to place their ships,
-* Longer ships occupying more coordinates.
+* Include tutorial videos
+* Online live streaming of recipes
 
 * * * 
 
@@ -350,6 +349,9 @@ FEATURES:
 * * *
 
 *   PYTHON
+*   CSS
+*   HTML
+*   JavaScript
 
 
 * * * 
@@ -359,6 +361,7 @@ FEATURES:
 
 * * *
 
+*   [Django](https://www.djangoproject.com/
 *   [GitHub](https://github.com/)
 *   [GitPod](https://www.gitpod.io/)
 *   [Heroku](https://id.heroku.com/login)
@@ -366,6 +369,9 @@ FEATURES:
 *   [Code beautify](https://codebeautify.org/html-to-markdown)
 *   [Balsamiq](https://balsamiq.com/wireframes/desktop/#)
 *   [Pep8](http://pep8online.com/)
+*   [Cloudinary](https://cloudinary.com/)
+*   [PostgreSQL](https://www.postgresql.org/)
+*   [Bootstrap](https://getbootstrap.com/)
 
 
 

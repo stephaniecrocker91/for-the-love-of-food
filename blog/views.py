@@ -14,6 +14,21 @@ class RecipeList(generic.ListView):
     paginated_by = 6
 
 
+class RecipeFavourites(generic.ListView):
+    model = Recipe 
+    template_name = 'recipe_favourites.html'
+    paginated_by = 6
+    context_object_name = 'recipe_favourites'
+  
+    def get(self, request, *args, **kwargs):
+        queryset = Recipe.objects.all()
+        favourite_recipes=[]
+        for recipe in recipes:
+            if recipe.favorites.filter(id=self.request.user.id).exists():
+                favorite_recipes.append(recipe)
+
+
+
 class RecipeDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -21,8 +36,11 @@ class RecipeDetail(View):
         recipe = get_object_or_404(queryset, slug=slug)
         comment = recipe.comment.order_by('created_on')
         liked = False
+        faved = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
+        if recipe.favourites.filter(id=self.request.user.id).exists():
+            faved = True
 
         return render(
             request, 
@@ -30,8 +48,8 @@ class RecipeDetail(View):
             {
                 "recipe": recipe,
                 "comments": comment,
-                # "commented": False, 
                 "liked": liked,
+                "faved": faved,
                 "comment_form": CommentForm()
             },
         )
@@ -41,8 +59,11 @@ class RecipeDetail(View):
         recipe = get_object_or_404(queryset, slug=slug)
         comment = recipe.comment.order_by('created_on')
         liked = False
+        faved = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
+        if recipe.favourites.filter(id=self.request.user.id).exists():
+            faved = True
 
         comment_form = CommentForm(data=request.POST)
 
@@ -62,6 +83,7 @@ class RecipeDetail(View):
                 "comments": comment,
                 "commented": True,
                 "liked": liked,
+                "faved": faved,
                 "comment_form": CommentForm()
             },
         )
@@ -77,6 +99,19 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
         
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+
+#
+class Favourite(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+
+        if recipe.favourites.filter(id=request.user.id).exists():
+            recipe.favourites.remove(request.user)
+        else:
+            recipe.favourites.add(request.user)
         
-        
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+             
 

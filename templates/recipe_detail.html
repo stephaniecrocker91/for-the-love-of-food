@@ -47,8 +47,22 @@
                     </div>
                     <div class="col-1">
                         <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-bookmark"></i>{{ recipe.number_of_favourites }}
-                        </strong>
+                        {% if user.is_authenticated %}
+                        <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
+                            {% csrf_token %}
+
+                            {% if faved %}
+                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                                    class="fas fa-bookmark"></i></button>
+                            {% else %}
+                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                                    class="far fa-bookmark"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-bookmark"></i></span>
+                        {% endif %}
+                        <span class="text-secondary"> {{ recipe.number_of_favourites }}</span>
                     </div>
                 </div>
                 <div class="col  mb-4  mt-3 left  top">
