@@ -21,12 +21,18 @@ class RecipeFavourites(generic.ListView):
     context_object_name = 'recipe_favourites'
   
     def get(self, request, *args, **kwargs):
-        queryset = Recipe.objects.all()
-        favourite_recipes=[]
+        recipes = Recipe.objects.all()
+        recipe_favourites = []
         for recipe in recipes:
-            if recipe.favorites.filter(id=self.request.user.id).exists():
-                favorite_recipes.append(recipe)
+            if recipe.favourites.filter(id=self.request.user.id).exists():
+                recipe_favourites.append(recipe)
 
+        return render(
+            request, "recipe_favourites.html",
+            {
+                'recipe_favourites': recipe_favourites
+            },
+        )
 
 
 class RecipeDetail(View):
