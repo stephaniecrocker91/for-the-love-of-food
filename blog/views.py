@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -126,16 +127,11 @@ class Favourite(View):
              
 
 
-# class CreateRecipeView(View):
+class CreateRecipeView(CreateView):
+    model = Recipe
+    template_name = 'create_recipe.html'
+    fields = ['title', 'category', 'image', 'ingredients', 'directions', 'status', ]
 
-#     context = {}
-#     user = request.user
-
-
-
-
-
-#     return render(request, 'create_recipe.html', {})
 
 
 

@@ -1,4 +1,5 @@
 from . import views
+from .views import CreateRecipeView
 from django.urls import path
 
 
@@ -8,5 +9,5 @@ urlpatterns = [
     path('favourites/', views.RecipeFavourites.as_view(), name='recipe_favourites'),
     path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
     path('like/<slug:slug>', views.RecipeLike.as_view(), name='recipe_like'),
- 
+    path('create_recipe/', CreateRecipeView.as_view(), name='create_recipe'),
 ]
