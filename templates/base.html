@@ -66,9 +66,13 @@
   </div>
 
   <div class="container-fluid">
-    <span class="navbar-text col-md-8 mt-3 offset-md-2" id="nav-title">
-      For the Love of Food
-    </span>
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <span class="display-2" id="nav-title">
+          For the Love of Food <i class="far fa-heart" style="font-size: 26px;"></i>
+        </span>
+      </div>
+    </div>
   </div>
 
 </header>
@@ -89,9 +93,9 @@
 </footer>
 <script>
   setTimeout(function () {
-      let messages = document.getElementById('msg');
-      let alert = new bootstrap.Alert(messages);
-      alert.close();
+    let messages = document.getElementById('msg');
+    let alert = new bootstrap.Alert(messages);
+    alert.close();
   }, 2500);
 </script>
 </body>

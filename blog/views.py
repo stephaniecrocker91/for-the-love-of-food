@@ -20,19 +20,24 @@ class RecipeFavourites(generic.ListView):
     paginated_by = 6
     context_object_name = 'recipe_favourites'
   
-    def get(self, request, *args, **kwargs):
-        recipes = Recipe.objects.all()
-        recipe_favourites = []
-        for recipe in recipes:
-            if recipe.favourites.filter(id=self.request.user.id).exists():
-                recipe_favourites.append(recipe)
+    def get_queryset(self):
+        user = self.request.user
+        queryset = user.recipe_fave.all()
+        return queryset
 
-        return render(
-            request, "recipe_favourites.html",
-            {
-                'recipe_favourites': recipe_favourites
-            },
-        )
+    # def get(self, request, *args, **kwargs):
+    #     recipes = Recipe.objects.all()
+    #     recipe_favourites = []
+    #     for recipe in recipes:
+    #         if recipe.favourites.filter(id=self.request.user.id).exists():
+    #             recipe_favourites.append(recipe)
+
+        # return render(
+        #     request, "recipe_favourites.html",
+        #     {
+        #         'recipe_favourites': recipe_favourites
+        #     },
+        # )
 
 
 class RecipeDetail(View):

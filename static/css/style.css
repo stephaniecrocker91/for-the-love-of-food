@@ -6,6 +6,14 @@ body {
   
 }
 
+#nav-title {
+    letter-spacing: 6px;
+
+}
+
+
+
 .btn-signup {
     background-color: rgb(135, 189, 163);
 }
+
