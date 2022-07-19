@@ -49,7 +49,7 @@
       </div>
       {% if user.is_authenticated %}
       <span class="navbar-text">
-       <button type="button" class="btn btn-outline-dark">Create Recipe</button>
+       <a href="{% url 'create_recipe' %}"><button type="button" class="btn btn-outline-dark">Create Recipe</button></a>
       </span>
       {% endif %}
     </div>
