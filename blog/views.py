@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
 
-# Create your views here.
+# views here...
 
 
 class RecipeList(generic.ListView):
@@ -112,7 +112,6 @@ class RecipeLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
-#
 class Favourite(View):
 
     def post(self, request, slug, *args, **kwargs):
@@ -125,4 +124,18 @@ class Favourite(View):
         
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
              
+
+
+# class CreateRecipeView(View):
+
+#     context = {}
+#     user = request.user
+
+
+
+
+
+#     return render(request, 'create_recipe.html', {})
+
+
 

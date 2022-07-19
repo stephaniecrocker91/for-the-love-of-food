@@ -47,6 +47,11 @@
           {% endif %}
         </ul>
       </div>
+      {% if user.is_authenticated %}
+      <span class="navbar-text">
+       <button type="button" class="btn btn-outline-dark">Create Recipe</button>
+      </span>
+      {% endif %}
     </div>
   </nav>
 
