@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.template.defaultfilters import slugify
 
 # Import Django User Model and Cloudinary models.
@@ -19,6 +20,8 @@ class Categories(models.Model):
     def __str__(self):
         return self.category
 
+
+
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -32,7 +35,6 @@ class Recipe(models.Model):
     favourites = models.ManyToManyField(User, related_name='recipe_fave', blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     
-# Extra methods which can be viewed as helpers.
     class Meta:
         ordering = ['-created_on']
 
@@ -45,6 +47,8 @@ class Recipe(models.Model):
     def number_of_favourites(self):
         return self.favourites.count()
 
+    def get_absolute_url(self):
+        return reverse('recipe_detail', args=(str(self.id)))
 
 
 
