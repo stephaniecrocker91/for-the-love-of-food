@@ -62,7 +62,7 @@ STRATEGY:
 
 * * *
 
-Create an aesthetically pleasing and easy to navigate open source recipe database. The site is in the style of a Food Blog. It allows users to create their profile, and upload their own recipes from our recipe template. Users can also view and interact with other users recipes: liking, commenting and saving as favourites.
+Create an aesthetically pleasing and easy to navigate open source recipe database. The site is in the style of a Food Blog. It allows users to create their profile, and upload their own recipes from our recipe template. Users can also view and interact with other users recipes: liking, commenting and saving as favourites. Their favourites will all be displayed in their favourites page.
 
 
 The site will allow for user authentification, and basic CRUD functionality.
@@ -86,7 +86,7 @@ STRUCTURE:
     * Navbar: FontAweseom Icon & Home, Register, and Login.
     * Header: "For the Love of Food"
     * Search feature. !!!!!?????
-    * You can immeditaley view the paginated list of recipe Posts.
+    * You can immeditaley view the paginated list of recipe Posts (authenticated or not).
 
 <img src="assets/images/homescreen.png" width="500px">
 
@@ -162,19 +162,39 @@ User can click on "Write my own Recipe" , which leads them to the following sect
 ## THE CODE:
 
 * * *
-!!!!!!!!!!!&&&&&^^^^^^^££££@@@@@@@
-Prior to commencing to write my code out, I planned out the .
+Prior to commencing to write my code out, I planned out the ERD.
 
-<img src="./assets/images/wireframes-functions.png" width="1000px">
+<img src="./static/images/diagram.png" width="1000px">
+
+The User Model ---> Django default User Model. We will use user (PK), Email and Password.
+
+Recipe Model --> Is our main model. It contains all the required fields for our recipe: recipe_id(PK), title, category(FK), slug, author(FK-User), created_on, image, ingredients, directions, likes, favourites, status and user. 
+
+
+Categories Model --> Containing the categories_id(PK), category field.
+
+Comments Model --> Containing, comment_id(PK), User(FK), recipe_id, body, created_on.
+
+Favourites Model --> Contains favourtites_id, recipe_id, user, likes.
+
+
+IMPORTANT RELATIONSHIPS BETWEEN TABLES:
+* One to many relationship between the User and the Recipe model.
+* One to many relationship between the User and the Favouries model.
+* One to many relationship between the User and the Comments model.
+* One to many relartionships between Category and Recipe's.
+* One to many relationships between Recipe and Comments model.
 
 
 * * * 
 
-## SURFACE:
+## SURFACE&&&&&&&&&&&&&&&&!!!!!!!!:
 
 * * *
-* When initially planning this game, knowing it would be run in a terminal, I knew it would be minimalistic.
-* Before starting, I created the wireframes displayed above. I knew I wanted the game to be minimal, retro 80's PC style.
+* When initially planning this game, I knew it would be clean, light and minimalistic. 
+* The recipes should read easily, and the pop of color will come from the images and buttons.
+
+* My initial wireframes...
 
 <img src="./assets/images/wireframes-visual.png" width="800px">
 <img src="./assets/images/wireframe-grid-size.png" width="260px">

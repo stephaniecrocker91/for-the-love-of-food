@@ -127,7 +127,13 @@ class Favourite(View):
              
 
 
+# class CreateRecipeView(CreateView):
+#     model = Recipe
+#     template_name = 'create_recipe.html'
+#     fields = ['title', 'category', 'author', 'image', 'ingredients', 'directions', 'status', ]
+
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'author', 'image', 'ingredients', 'directions', 'status', ]
+    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions', 'status', ]
+    success_url = '/'

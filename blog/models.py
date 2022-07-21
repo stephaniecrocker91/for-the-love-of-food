@@ -35,6 +35,10 @@ class Recipe(models.Model):
     favourites = models.ManyToManyField(User, related_name='recipe_fave', blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Recipe, self).save(*args, **kwargs)
+        
     class Meta:
         ordering = ['-created_on']
 
