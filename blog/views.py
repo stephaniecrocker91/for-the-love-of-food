@@ -131,7 +131,3 @@ class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
     fields = ['title', 'category', 'author', 'image', 'ingredients', 'directions', 'status', ]
-
-
-
-

@@ -72,9 +72,3 @@ class Comment(models.Model):
     #         self.slug = slugify(self.body)
     #     return super().save(*args, **kwargs)
 
-
-
-
-
-
-
