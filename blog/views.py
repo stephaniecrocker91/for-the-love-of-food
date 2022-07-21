@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -19,8 +19,7 @@ class RecipeFavourites(generic.ListView):
     model = Recipe 
     template_name = 'recipe_favourites.html'
     paginated_by = 6
-    context_object_name = 'recipe_favourites'
-  
+    context_object_name = 'recipe_favourites'  
     def get_queryset(self):
         user = self.request.user
         queryset = user.recipe_fave.all()
@@ -123,17 +122,17 @@ class Favourite(View):
         else:
             recipe.favourites.add(request.user)
         
-        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
-             
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))         
 
-
-# class CreateRecipeView(CreateView):
-#     model = Recipe
-#     template_name = 'create_recipe.html'
-#     fields = ['title', 'category', 'author', 'image', 'ingredients', 'directions', 'status', ]
 
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions', 'status', ]
+    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions',]
+    success_url = '/'
+
+class UpdateRecipeView(UpdateView):
+    model = Recipe
+    template_name = 'update_recipe.html'
+    fields = ['title', 'category', 'ingredients', 'image', 'directions',]
     success_url = '/'

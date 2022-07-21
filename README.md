@@ -359,8 +359,10 @@ FEATURES:
 
 ### Future features
 
-* Include tutorial videos
-* Online live streaming of recipes
+* Prepopulated published status of post/ or select draft and store in different place (to continue working on). 
+* Alert to fade away after 3 seconds.
+* Search bar -- in nav.
+
 
 * * * 
 

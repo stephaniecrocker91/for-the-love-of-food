@@ -49,7 +49,8 @@
       </div>
       {% if user.is_authenticated %}
       <span class="navbar-text">
-       <a href="{% url 'create_recipe' %}"><button type="button" class="btn btn-outline-dark">Create Recipe</button></a>
+        <a href="{% url 'create_recipe' %}"><button type="button" class="btn btn-dark">Create
+            Recipe</button></a>
       </span>
       {% endif %}
     </div>
@@ -69,6 +70,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="container-fluid">
     <div class="row">
@@ -98,10 +100,10 @@
 </footer>
 <script>
   setTimeout(function () {
-    let messages = document.getElementById('msg');
+    let messages = document.getElementById("msg");
     let alert = new bootstrap.Alert(messages);
     alert.close();
-  }, 2500);
+  }, 3000);
 </script>
 </body>
 

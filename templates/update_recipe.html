@@ -3,12 +3,12 @@
 {% block content %}
 
 
-<h1>Create your Recipe: </h1>
+<h1>Edit your Recipe: </h1>
 
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-dark"></button>>POST</button>
+    <button class="btn btn-dark">UPDATE</button>
 </form>
 
 {% endblock %}

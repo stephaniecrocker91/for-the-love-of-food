@@ -27,6 +27,9 @@
               </div>
               <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                 <h2 class="card-title">{{ recipe.title }}</h2>
+                <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
+                
+                <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit"></i></a>
                 <p class="card-text">{{ recipe.category }}</p>
               </a>
               <hr />
@@ -43,37 +46,6 @@
       </div>
     </div>
   </div>
-
-
-  <!-- Add clickable icon to add recipe -->
-
-  <!-- <div class="col-12 mt-3 left">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="image-container">
-              <img class="card-img-top"
-                src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
-              <div class="image-flash">
-                <p class="author">Author: </p>
-              </div>
-            </div>
-            <a href="" class="post-link">
-              <h2 class="card-title">Title</h2>
-              <p class="card-text">Category</p>
-            </a>
-            <hr />
-            <p class="card-text text-muted h6">Created on<i class="far fa-heart"></i>
-              number likes</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div> -->
-
 
 
 {% if is_paginated %}

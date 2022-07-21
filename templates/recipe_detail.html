@@ -9,7 +9,7 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title"> {{ recipe.title }}
+                <h1 class="post-title"> {{ recipe.title }} <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit"></i></a></span></small>
                 </h1>
                 <p class="post-subtitle"> Category: {{ recipe.category }}</p>
 
@@ -93,22 +93,7 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">{{ recipe.directions | safe}}</p>
-                <div class="row">
 
-                    <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i>{{ recipe.number_of_likes }}
-                        </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                            {{ total_comments }}
-                        </strong>
-                        {% endwith %}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -149,9 +134,9 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
                 </form>
-                
+
                 {% endif %}
             </div>
         </div>
@@ -159,4 +144,3 @@
 </div>
 
 {% endblock content %}
-
