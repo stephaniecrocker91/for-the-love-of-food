@@ -9,7 +9,10 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title"> {{ recipe.title }} <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit"></i></a></span></small>
+                <h1 class="post-title"> {{ recipe.title }}
+                    <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
+                                    class="fas fa-edit"></i></a></span></small>
+                    <!-- <small><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete</a></span></small> -->
                 </h1>
                 <p class="post-subtitle"> Category: {{ recipe.category }}</p>
 

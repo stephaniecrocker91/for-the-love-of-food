@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -135,4 +135,9 @@ class UpdateRecipeView(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
     fields = ['title', 'category', 'ingredients', 'image', 'directions',]
+    success_url = '/'
+
+class DeleteRecipeView(DeleteView):
+    model = Recipe
+    template_name = 'delete_recipe.html'
     success_url = '/'

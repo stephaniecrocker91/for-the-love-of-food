@@ -12,4 +12,3 @@ class CommentForm (forms.ModelForm):
 #     class Meta:
 #         model = Recipe
 #         fields = ['title', 'category', 'image', 'ingredients', 'directions']
-  
