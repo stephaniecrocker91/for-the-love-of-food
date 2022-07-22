@@ -28,8 +28,11 @@
               <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                 <h2 class="card-title">{{ recipe.title }}</h2>
                 <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
-                
+                {% if user.is_authenticated %}
+                  {% if user.id == recipe.author.id %}
                 <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit"></i></a>
+                  {% endif %}
+                {% endif %}
                 <p class="card-text">{{ recipe.category }}</p>
               </a>
               <hr />
