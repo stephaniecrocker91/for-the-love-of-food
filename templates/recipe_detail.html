@@ -10,9 +10,12 @@
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title"> {{ recipe.title }}
-
-                    <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
+                    {% if user.is_authenticated %}
+                        {% if user.id == recipe.author.id %}
+                            <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
                                     class="fas fa-edit"></i></a></span></small>
+                        {% endif %}
+                    {% endif %}
                     <!-- <small><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete</a></span></small> -->
 
                 </h1>

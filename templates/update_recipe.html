@@ -2,13 +2,19 @@
 
 {% block content %}
 
+<!-- {% if user.is_authenticated %}
+    {% if user.id == recipe.author.id %}
+        <h1>Edit your Recipe: </h1> -->
 
-<h1>Edit your Recipe: </h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">UPDATE</button>
+        </form>
+        <button class="btn btn-warning"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete Recipe</a></span></button>
+<!-- {% else %}
+    <p>Page not authorized!</p>
+    {% endif %}
+{% endif %} -->
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-dark">UPDATE</button>
-</form>
-<button class="btn btn-warning"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete Recipe</a></span></button>
 {% endblock %}
