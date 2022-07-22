@@ -39,6 +39,15 @@ class RecipeFavourites(generic.ListView):
         #     },
         # )
 
+class RecipeDrafts(generic.ListView):
+    model = Recipe 
+    template_name = 'recipe_drafts.html'
+    paginated_by = 6
+    context_object_name = 'recipe_drafts'  
+    def get_queryset(self):
+        queryset = Recipe.objects.filter(status=0)
+        return queryset
+
 
 class RecipeDetail(View):
 
@@ -128,7 +137,7 @@ class Favourite(View):
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions',]
+    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions', 'status']
     success_url = '/'
 
 class UpdateRecipeView(UpdateView):
