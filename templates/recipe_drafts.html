@@ -9,13 +9,14 @@
     <div class="col-12 mt-3 left">
       <div class="row">
         {% for recipe in recipe_drafts %}
-        
+
         <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
-                <img class="card-img-top" src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
+                <img class="card-img-top"
+                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
                 {% else %}
                 <img class="card-img-top" src="{{ recipe.image.url }}">
                 {% endif %}
@@ -23,10 +24,20 @@
                   <p class="author">Author: {{ recipe.author }}</p>
                 </div>
               </div>
-              <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+              {% if user.is_authenticated %}
+                {% if user.id == recipe.author.id %}
+                  <a href="{% url 'update_recipe' recipe.pk %}" class="post-link">
+                {% endif %}
+              {% endif %}
                 <h2 class="card-title">{{ recipe.title }}</h2>
                 <p class="card-text">{{ recipe.category }}</p>
               </a>
+              <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
+              {% if user.is_authenticated %}
+              {% if user.id == recipe.author.id %}
+              <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit black-text float-end"></i></a>
+              {% endif %}
+              {% endif %}
               <hr />
               <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="far fa-heart"></i>
                 {{ recipe.number_of_likes }}</p>
@@ -37,7 +48,7 @@
       </div>
       <div class="row">
         {% endif %}
-        
+
         {% endfor %}
 
       </div>

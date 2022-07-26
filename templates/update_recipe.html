@@ -3,20 +3,30 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    {% if user.id == recipe.author.id %}
-        <h1>Edit your Recipe: </h1>
-
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-dark">UPDATE</button>
-        </form>
-        <button class="btn btn-warning"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete Recipe</a></span></button>
-    {% else %}
-        <p>Page not authorized!</p>
-    {% endif %}
+{% if user.id == recipe.author.id %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="edit-title">Edit your Recipe: </h1>
+                </div>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-dark">UPDATE</button>
+            </form>
+            <button class="btn btn-warning"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete
+                        Recipe</a></span></button>
+        </div>
+    </div>
+</div>
 {% else %}
-    <p>Page not authorized!</p>
+<p>Page not authorized!</p>
+{% endif %}
+{% else %}
+<p>Page not authorized!</p>
 {% endif %}
 
 {% endblock %}

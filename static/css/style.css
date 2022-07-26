@@ -4,17 +4,24 @@
 
 body {
     font-family: Montserrat;
-    font-weight: 500;
+    font-weight: 700;
+    
 }
 
-/* header and navbar */
+/************************ header and navbar */
+
+header {
+    padding-bottom: 40px;
+}
+
 #nav-title {
     letter-spacing: 6px;
 
 }
 
-a:hover {
+.nav-link:hover {
     font-size: larger;
+    color: blue;
 }
 
 .navbar-brand:hover {
@@ -26,20 +33,34 @@ a:hover {
     letter-spacing: 7px;
 }
 
-
-/* buttons */
-.btn-auth {
-    background-color: rgb(135, 189, 163);
+/************************ buttons */
+.green-box {
+    background-color: rgb(187, 223, 205, 0.7);
+    padding-bottom: 40px;
 }
 
+/************************ buttons */
 
-/* hyperlinks styling */
+.btn:hover {
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+/************************ hyperlinks styling */
 
 .black-text {
     color: #444;
     text-decoration: none;
 }
 
+
 .link-feature:hover {
     font-size: 2.2rem;
 }
+
+.btn-signup {
+    background-color: rgb(135, 189, 163);
+}
+
+
+
