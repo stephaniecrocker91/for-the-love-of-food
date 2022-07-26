@@ -255,47 +255,54 @@ FEATURES:
 
 
 *   RECIPE DETAIL: (recipe_detail.html) User can view the recipe details. 
- * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Navbar: FontAweseom Icon & Home, Register, and Login
     * Header: "For the Love of Food"
-    * Header: M E N U
-    * Personalised message to prepare for battle
-    * 3 options:
-        * Instructions - 1
-        * Launch game - 2
-        * Exit game - 3
-    * Play input request: loops user input request until validated. I created a validating function to anticipate any errors the user may input:
-        * Must be in a predetermined list with values: 1, 2, 3
-        * Must be a digit
+    * Recipe Title
+    * Recipe Category
+    * Recipe author / Created_on date and time
+    * Like button (and number of likes), Comments image (and number of comments), favourite button (and number of favourites)
+    * Recipe ingredients
+    * Recipe Image
+    * Recipe instructions
     
 
  <img src="assets/images/error.png" width="500px"> 
 
-*   INSTRUCTIONS - when entering 1
-    * Header: I N S T R U C T I O N S 
-    * Listed game instructions in bullet points
-    * Separated by spaces to make rules clearer.
-    * Instruction to enter M - go back to menu
-    * Player input request. (Validated before redirecting). This looped request until validation anticipates the following possible errors:
-        * Must be 1 digit
-        * Must be M only
+*   REGISTER - (account/signup.html)
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Sign Up Title - and instructions to sign in if you already have an account.
+    * Input fields:
+        * Username
+        * Email (optional)
+        * Passoword
+        * Passoword (again)
+        * Submit button --> Sign Up
 
  <img src="assets/images/error-2.png" width="500px"> 
 
-* QUIT GAME - when entering 3 from MENU
-    * Header: Q U I T  G A M E 
-    * Message confirming if user wants to exit game. Language is challenging the user.
-    * Question player. Quit game?
-        * If Y - GAME OVER
-        * If N - back to MENU
-    * Player input request. (Validated before redirecting). This looped request until validation anticipates the following possible errors:
-        * Must be alphabetical
-        * Must be in predetermined list with values: Y, N
+* LOGIN - account/login.html
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Sign IN Title - and instructions to register if you haven't already got an account.
+    * Input fields:
+        * Username
+        * Email (optional)
+        * Remember me optional checkbox (optional)
+        * Submit button --> Sign In
 
  <img src="assets/images/error-3.png" width="500px"> 
 
 
-* GAME OVER - when entering Y from QUIT GAME
-    * Message displaying G A M E  O V E R
+* LOGOUT - account/logout.html
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Sign IN Title - and instructions to register if you haven't already got an account.
+    * Input fields:
+        * Username
+        * Email (optional)
+        * Remember me optional checkbox (optional)
+        * Submit button --> Sign In
 
  <img src="assets/images/gameover.png" width="500px"> 
 
