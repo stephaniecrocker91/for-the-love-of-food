@@ -191,8 +191,8 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 ## SURFACE&&&&&&&&&&&&&&&&!!!!!!!!:
 
 * * *
-* When initially planning this game, I knew it would be clean, light and minimalistic. 
-* The recipes should read easily, and the pop of color will come from the images and buttons.
+* When initially planning this site, I knew it would be clean, light and minimalistic. 
+* The recipes should read easily, and the pop of color will come from the images and perhaps a few buttons. Most would be in black and white.
 
 * My initial wireframes...
 
@@ -205,8 +205,7 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 
 * * *
 
- When discovering more python packages, I decided to incorporate termcolor to add a pop of color to my terminal.
- I decided to go with a retro, 80's style console and incorporated a GREEN font.
+Mostly white, black, grey and a pop of green in afew buttons. Most of the color will come from the images uploaded by uses. 
 
 <img src="./assets/images/retro-terminal.png" width="800px">
 
@@ -217,9 +216,10 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 
 * * *
 
-Using the standard console typography: but played around with a few things
-* Use of spacing in headers : H E A D E R
-* Use of "************" for page break and separation
+Light, spaced, delicate and clean font. 
+*  Montserrat
+*  Use of letter-spacing
+
 
 
 <img src="assets/images/spaces-letters-font.png" width="500px">
@@ -228,8 +228,9 @@ Using the standard console typography: but played around with a few things
 
 * * *
 
-No use of images or icons.
-Everything was built using letters, numbers, typographical symbols and punctuation to create the grid.
+Use of a few font-awesome black icons to add some charater.
+Still very minimalistic!
+
 
 <img src="assets/images/grid.png" width="500px">
 
@@ -242,17 +243,20 @@ FEATURES:
 
 ### Current features
 
-*   LANDING PAGE: This is the page that initially loads when you first arrive at the site. 
+*   HOME PAGE: (index.html) This is the page that initially loads when you first arrive at the site. 
     * Navbar: FontAweseom Icon & Home, Register, and Login
     * Header: "For the Love of Food"
-    * You can immeditaley view the paginated 
+    * You can immeditaley view the recipes listed. 
+    * Without having set up an authenticated user log, the user can view the recipe details. They can just click on the title and will be redirected to the recipe_detail.html page.
 
 
   <img src="assets/images/name-1.png" width="500px"> 
   <img src="assets/images/name-2.png" width="500px"> 
 
 
-*   MENU: which loads once the user has input player name and it has been validated. The form takes the player's name and uses it below.
+*   RECIPE DETAIL: (recipe_detail.html) User can view the recipe details. 
+ * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
     * Header: M E N U
     * Personalised message to prepare for battle
     * 3 options:
