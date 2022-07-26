@@ -1,19 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:wght@100&display=swap');
 
+/* General body styling */
+
 body {
     font-family: Montserrat;
     font-weight: 500;
-  
 }
 
+/* header and navbar */
 #nav-title {
     letter-spacing: 6px;
 
 }
 
+a:hover {
+    font-size: larger;
+}
+
+.navbar-brand:hover {
+    font-size: 1.5rem;
+}
+
+#nav-title:hover {
+    font-size: 4.7rem;
+    letter-spacing: 7px;
+}
 
 
+/* buttons */
 .btn-auth {
     background-color: rgb(135, 189, 163);
 }
 
+
+/* hyperlinks styling */
+
+.black-text {
+    color: #444;
+    text-decoration: none;
+}
+
+.link-feature:hover {
+    font-size: 2.2rem;
+}
