@@ -281,7 +281,10 @@ FEATURES:
 
  <img src="assets/images/error-2.png" width="500px"> 
 
-* LOGIN - account/login.html
+ When registered and logged in you will be able to view the following in the nav bar: Home, Favourites, Drafts, Logout, Create Recipe, and the listed recipes.
+ Before this you will only see: Home, Register, and Login.
+
+* LOGIN - (account/login.html)
     * Navbar: FontAweseom Icon & Home, Register, and Login
     * Header: "For the Love of Food"
     * Sign IN Title - and instructions to register if you haven't already got an account.
@@ -293,75 +296,48 @@ FEATURES:
 
  <img src="assets/images/error-3.png" width="500px"> 
 
+When logged in you will be able to view the following in the nav bar: Home, Favourites, Drafts, Logout, Create Recipe, and the listed recipes.
 
-* LOGOUT - account/logout.html
+* LOGOUT - (account/logout.html)
     * Navbar: FontAweseom Icon & Home, Register, and Login
     * Header: "For the Love of Food"
-    * Sign IN Title - and instructions to register if you haven't already got an account.
-    * Input fields:
-        * Username
-        * Email (optional)
-        * Remember me optional checkbox (optional)
-        * Submit button --> Sign In
+    * Sign OUT Title 
+    * Message - are yu sure you wnat to sign out?
+    * Submit button --> Sign Out
 
  <img src="assets/images/gameover.png" width="500px"> 
+ Once logged out you will only bew able to view: Home, Register, and Login.
 
-
-* GRID SELECTION - when entering 2 from MENU
-    * Message displaying G R I D  S I Z E
-    * Options to select from:
-        * 5 x 5 (easy)
-        * 8 x 8 (medium)
-        * 12 x 12 (hard)
-    * Input request (validated before submitting). This looped request until validation anticipates the following possible errors:
-        * Must be in a predetermined list with values: 5, 8, 12
-        * Must be a digit
+* FAVOURITES - (recipe_favourites.html) -> This is the page that will load, from an authenticated logged in user, when clicking on Favourites.
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * You can immeditaley view the favourited recipes by this user. 
+    * User cna click onto the recipe title to get the recipe details.
 
 <img src="assets/images/error-4.png" width="500px"> 
 
 
-* LAUNCH GAME ROUND - after selecting grid size
-    * Header: B A T T L E F I E L D
-    * Battlefield Grid:
-        * Rows: A B C D E ...
-        * Columns: A B C D E ...
-    * Input request: Enter row (validated before submitting)
-    * Input request: Enter column (validated before submitting)
-    Both cases, request is looped until validation anticipates the following possible errors:
-        * Must be alphabetical
-        * Must be in a predetermined list with values determined by a for loop with range(grid_size) which creates an alphabetical list to cover this range.
+* DRAFTS - (recipe_drafts.html) -> This is the page that will load, from an authenticated logged in user, when clicking on Drafts. It will display all the recipes that have not been published yet.
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * You can immeditaley view the drafted recipes by this user. 
+    * User can click onto the recipe title to get the recipe details.
+
 
 <img src="assets/images/error-5.png" width="500px"> 
 
-* AFTER SUBMITTING COORDINATES - results added!
-    * Message confirming hit, miss, or repeated coordinate.
-    * Options, launch next missile?
-        * Y - yes (validated before submitting)
-        * N - no (validated before submitting)
-    * Player input request. (Validated before redirecting). This looped request until validation anticipates the following possible errors:
-        * Must be alphabetical
-        * Must be in predetermined list with values: Y, N
+* CREATE RECIPE - st be in predetermined list with values: Y, N
 
 
 <img src="assets/images/error-6.png" width="500px"> 
 
 
-* 2nd ROUND ONWARDS...
-    * Exactly the same as before but adding:
-        * Missiles left! with each round that loops, the function adds 1 missile, and subtracts that value from the total missiles at the start.
-        * X (sunk) or - (missed) on grid where the player has previously hit.
-
+* EDIT RECIPE -
+    
 <img src="assets/images/round-3.png" width="500px"> 
     
 
-* END SCORE (Either after completing 15 rounds, or having sunk all ships)
-    * Header: G A M E  O V E R 
-    * Personalised message: You win or You lose!
-    * Number of ships sank
-    * Number of ships remaining
-    * Options, play again?
-        * Y - yes (validated before submitting)
-        * N - no (validated before submitting)
+* DELETE RECIPE -
 
 <img src="assets/images/final-score.png" width="500px"> 
 

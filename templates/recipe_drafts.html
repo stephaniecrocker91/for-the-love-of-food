@@ -9,7 +9,6 @@
     <div class="col-12 mt-3 left">
       <div class="row">
         {% for recipe in recipe_drafts %}
-        {{recipe.image.url}}
         <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
@@ -25,10 +24,10 @@
                 </div>
               </div>
               {% if user.is_authenticated %}
-                {% if user.id == recipe.author.id %}
-                  <a href="{% url 'update_recipe' recipe.pk %}" class="post-link">
+              {% if user.id == recipe.author.id %}
+              <a href="{% url 'update_recipe' recipe.pk %}" class="post-link">
                 {% endif %}
-              {% endif %}
+                {% endif %}
                 <h2 class="card-title">{{ recipe.title }}</h2>
                 <p class="card-text">{{ recipe.category }}</p>
               </a>
@@ -48,24 +47,27 @@
       </div>
       <div class="row">
         {% endif %}
-
         {% endfor %}
-
       </div>
     </div>
   </div>
-  {% if is_paginated %}
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-      {% endif %}
-      {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-      {% endif %}
-    </ul>
-  </nav>
-  {% endif %}
-</div>
-{% endblock %}
+
+
+
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+  {% endblock %}
