@@ -138,6 +138,8 @@ class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
     fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions', 'status']
+    print("create recipe")
+    print(fields)
     success_url = '/'
 
 class UpdateRecipeView(UpdateView):
