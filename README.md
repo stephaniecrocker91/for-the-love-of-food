@@ -363,8 +363,8 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
 
 ### Future features
 
-* Prepopulated author = user authenticated
-* 
+* Prepopulated author of recipe = authenticated user name. This prevents the user to be able to use someone else's name as author. 
+* When creating recipe, the user can either input the category or sleect one from the dropdown menu. At the moment the user is limited to selecting from a limited amount.
 
 
 * * * 
@@ -427,178 +427,11 @@ Tested and no errors found.
 
 * * * 
 
-Testing this game manually was a long and very detailed process. No errors were found.
+Testing this site manually was a long and very detailed process. No errors were found.
 
 * * *
 
 
-INTRODUCTION: 
-* The initial page loads correctly, with no problems displaying its content.
-* Player name input form (required, and validated before submitting):
-* Input must be validated. To do so, I created a function called input_player_name. This required the user to input an alphabetical string. Input will not be submitted if it is not this type of data. As seen below, it will not validate a digit, empty space or punctuation.
-
-<img src="assets/images/validate-name.png" width="500px"> 
-        
-* This name is successfuly stored as a variable and used a number of times throughout the game. (As seen displayed below)
-
-<img src="assets/images/validate-name-2.png" width="500px"> 
-
-
-MENU: 
-* which loads once the user has input player name and it has been validated. 
-* Content is displayed clearly, and loads properly when inputting the correct Player_name data.
-* The user must input one of the 3 options. Once again, this requires validating. To do so, I created a separate function called validate_key_numerical. In this function, we anticipate the following errors
-    * Input is NOT a digit
-    * Input is not one of the pre-determined valid keys listed under keys_123.
-* Play input request: loops user input request until validated. I created a validating function to anticipate any errors the user may input:
-* When testing, I can confirm that it works and the code will not accept anything other than digits 1, 2 and 3.
-
-<img src="assets/images/validate-menu-1.png" width="500px"> 
-<img src="assets/images/validate-menu-2.png" width="500px"> 
-<img src="assets/images/validate-menu-3.png" width="500px"> 
-<img src="assets/images/validate-menu-4.png" width="500px"> 
-
-INSTRUCTIONS - 
-* Can confirm that when inputting 1, user is directed to the correct section: Instructions.
-
-<img src="assets/images/instructions-validate-1.png" width="500px"> 
-
-* The content is displayed clearly in the terminal. You can see all information without having to scroll up or down.
-* Player input request must be valid: To achieve this, I created one more function called validate_key_alpha that loops the request until it is valid. This function anticipated the following errors:
-    * That the (data.isalpha()) is False
-    * That the input is not one of the predetermined keys listed, in this case M only.
-<img src="assets/images/menu-val.png" width="500px"> 
-<img src="assets/images/menu-val-2.png" width="500px">  
-<img src="assets/images/menu-val-3.png" width="500px"> 
-<img src="assets/images/menu-val-4.png" width="500px"> 
-
-QUIT GAME: 
-* No issues, redirects to this section as expected when entering 3 from MENU.
-* Content is displayed clearly, and leaves for no ambiguity. 
-* Question player. Quit game? - User input must be validated before proceeding. For this section, I used the same function validate_key_alpha. In this case, we anticipate the same errors:
-    * That the (data.isalpha()) is False
-    * That the input is not one of the predetermined keys listed, in this case the yes-no-keys list containing Y and N only. This is looped until validation. It has been tested and I can confirm it will accept nothing other than this.
-  
-
- <img src="assets/images/exit-validate-1.png" width="500px"> 
- <img src="assets/images/exit-validate-2.png" width="500px"> 
- <img src="assets/images/exit-validate-3.png" width="500px"> 
- <img src="assets/images/exit-validate-4.png" width="500px"> 
-
-
-GAME OVER: 
-* When entering Y from QUIT GAME
-* Message displaying G A M E  O V E R - no issues. Works as intended
-
- <img src="assets/images/gameover.png" width="500px"> 
-
-
-GRID SELECTION:
-* When entering 2 from MENU the user is directed to the grid selection as intended. 
-* The information is displayed clearly. The user can choose between 3 grid sizes. Input must be validated.
-* Options to select from:
-    * 5 x 5 (easy)
-    * 8 x 8 (medium)
-    * 12 x 12 (hard)
-* Input request (validated before submitting). This looped request until validation anticipates the following possible errors:
-    * Must be in a predetermined list with values: 5, 8, 12
-    * Must be a digit
-
-* With manual testing, I can confirm this works as intended, and no errors occurred.
-
-<img src="assets/images/grid-val.png" width="500px"> 
-<img src="assets/images/grid-val-2.png" width="500px"> 
-<img src="assets/images/grid-val-3.png" width="500px"> 
-
-
-LAUNCH GAME ROUND: 
-* After selecting grid size and the input being correctly validated.
-* The information is all displayed correctly. When clicking on the grid size, the correct grid board is displayed. See below:
-
-<img src="assets/images/five-grid.png" width="500px"> 
-<img src="assets/images/eight-grid.png" width="500px"> 
-<img src="assets/images/twelve-grid.png" width="500px"> 
-
-* When creating the board, the function to create the 5 random ship coordinates is triggered. By manually printing the ship-coordinate list we can confirm this works correctly.
-
-<img src="assets/images/random-ships.png" width="500px"> 
-
-* The coordinates generated must also work within the grid range. Through manual testing, I can confirm that depending on the grid size, all coordinates generated are within parameters.
-    * For the 5 x 5 = cooridinates between 0 and 4 generated.
-    * For 8 x 8 = coordinates between 0 and 7 generated
-    * For 12 x 12 = coordinates between 0 and 11 generated
-
-<img src="assets/images/coord1.png" width="500px"> 
-<img src="assets/images/coord2.png" width="500px"> 
-<img src="assets/images/coord3.png" width="500px"> 
-
-* Input request: Enter row (validated before submitting)
-* Input request: Enter column (validated before submitting)
-* In both cases, request is looped until validation anticipates the following possible errors:
-    * Must be alphabetical
-    * Must be in pre-determined list with values determined by a for loop with range(grid_size) which creates an alphabetical list to cover this range.
-    
-I can confirm that no errors come up. 
-<img src="assets/images/error-5.png" width="500px"> 
-<img src="assets/images/row-col-error.png" width="500px"> 
-
-
-AFTER SUBMITTING COORDINATES:  
-* Results added! Message confirming hit, miss, or repeated coordinate. With some manual testing carried out by temporarily printing the ship coordinates, I can confirm that when the user inputs the ship coordinates, an X is displayed on the grid. If it is not part of the list, a - is displayed. 
-For reference - A = 0, B = 1, C = 2, D = 3, E = 4
-* As you can see, (0,0)=(A,A) and (1,1)=(B,B) are ship locations. As they were entered by the user, we display an X in this position.
-* (3,3)=(C,C) is not, therefore it is represented on the grid with a -.
-
-<img src="assets/images/xand-.png" width="500px"> 
-
-
-OPTIONS: launch next misile?
-
-* Content is displayed clearly, and leaves for no ambiguity. 
-* Question player. Launch next? - User input must be validated before proceeding. For this section, I used the same function validate_key_alpha. In this case, we anticipate the same errors:
-     * That the (data.isalpha()) is False
-    * That the input is not one of the predetermined keys listed, in this case the same yes-no-keys list containing Y and N  only. This is looped until validation. It has been tested and I can confirm it will accept nothing other than this.
-    * Y - yes (validated before submitting)
-    * N - no (validated before submitting)
-* Manual testing confirms this works, resulting in no errors.
-* When entering Y - next missile will be launched. Requests new row coordinate.
-* When entering N - quit game ?
-
-<img src="assets/images/error-y-n.png" width="500px"> 
-   
-* During testing, I can confirm that the correct message is displayed when :
-    * matching coordinate - You sunk a ship!
-    * Not matching - You missed!
-    * Hitting a coordinate you have hit previously
-
-<img src="assets/images/hit.png" width="500px"> 
-<img src="assets/images/miss.png" width="500px"> 
-<img src="assets/images/double.png" width="500px"> 
-
-END SCORE (Either after completing 15 rounds, or having sunk all ships): 
-* Personalised message: You win or You lose! After having tested with many scenarios, I can confirm it displays the correct score.
-    * Number of ships sank
-    * Number of ships remaining
-
-<img src="assets/images/correct-score.png" width="500px"> 
-    
-* The function will break once all 5 ships have been sunk regardless of how many missiles are left! 
-
-<img src="assets/images/all-hits.png" width="500px"> 
-
-
-OPTIONS, play again?
-
-* Content is displayed clearly, and leaves for no ambiguity. 
-* Question player. Play again? - User input must be validated before proceeding. For this section, I used the same function validate_key_alpha. In this case, we anticipate the same errors:
-    * That the (data.isalpha()) is False
-    * That the input is not one of the predetermined keys listed, in this case the same yes-no-keys list containing Y and N  only. This is looped until validation. It has been tested and I can confirm it will accept nothing other than this.
-    * Y - yes (validated before submitting)
-    * N - no (validated before submitting)
-
-<img src="assets/images/final-score.png" width="500px"> 
-
-* After manual testing and some debugging, I can confirm that both the grid and the random ships coordinate are refreshed once starting the game again.
 
 
 * * * 
@@ -606,36 +439,18 @@ OPTIONS, play again?
 
 ###### BUGS & FIXES: 
 
-* Loop for grid size selection. When testing this part, I noticed that when a ValueError occurred with user input, the loop would only re-loop the input section. It did not include the options that could be selected. This would mean that if still committing errors, the user would have to scroll up to gain clarification on grid size options. This was solved by changing the while True loop. I included the text into this loop. See below:
-
-<img src="assets/images/loop-bug.png" width="500px"> 
-<img src="assets/images/loop-bug-fix.png" width="500px"> 
-
-
-* While manually testing the random coordinates generated to create the ships, I noticed an error in my code. Because I had initially only created a 5 x 5 grid and I wanted to create 5 random ships, I had used the following using the int(grid_size). 
-
-<img src="assets/images/ships-bug.png" width="500px"> 
-<img src="assets/images/random-ships-2.png" width="500px"> 
-<img src="assets/images/random-ships-3.png" width="500px"> 
-
-This was amended to while len(enemy_ship_coordinates) < 5:
-I can confirm it now generates only 5 random coordinates for the ships.
-
-<img src="assets/images/ships-bug-fix.png" width="500px"> 
-
-* A significant bug I encountered was when finishing a game and wanting to launch the game again. The X's and -'s remained displayed on the board. Sean from Code Institute helped me solve this, and suggested I use the following code:
-    
-    <img src="assets/images/sean-bug.png" width="1000px">
-    <img src="assets/images/sean-bug-2.png" width="1000px">
-
-I can confirm after being manually tested, that the grid will refresh and an entire new set of ship-coordinates is generated after starting a new game.
+* 
 
 * * * 
 
 #### Unresolved bug 
 
 * * * 
-I would like to resolve the following issue. When sinking all 5 ships, the program still asks the user if they would like to launch a new misile. I would like to change this so that it goes straight to the SCORE section displayed VICTORY!
+I would like to resolve the following issue. 
+
+* CSS styling not loading in my deployed heroku app.
+* When a user creates a recipe, they have the option of selecting any author. This is not good user experience. The author should automatically be pre-filled as the verified authenticated user. This allows for more issues. For example: if the user accidentally creates a post using the ertong authot name, they no longer have the ability to edit/delete this post.
+* When creating recipe, the user can only select an option from a dropdown meny that has been preset. They cannot add their own category (in the case that they needed to).
 
 <img src="assets/images/victory-bug.png" width="200px">
 
@@ -646,48 +461,40 @@ I would like to resolve the following issue. When sinking all 5 ships, the progr
 
 * * * 
 
-1. The site is designed in a way that makes the game cool, strategic but easy to play.
-Yes - the game is easy to navigate and easy to play. The simplistic design of the game and the grid makes it cool and fun for the user.
-
-<img src="assets/images/homescreen.png" width="600px">
+1. As a Site User I can view a paginated list of posts so that easily select a post to view.
 
 
-2. The game feels personal as the user can input their name and see it displayed throughout.
-Yes - the user inputs their name, and it is then displayed throughout. It is done several time during the game. This allows the game to become personal!
-
-<img src="assets/images/name-1.png" width="600px">
-<img src="assets/images/name-2.png" width="600px">
-
-3. The game instructions are clear and concise and can be easily accessed at the start of the game.
-Yes - the instructions are displayed in bullet points. They are clear and straightforward. I have also arranged them in small sections to make them clearer.
-
-<img src="assets/images/instructions.png" width="600px">
+2. As a Site User I can register an account so that I can View, post, comment, favourite and like recipes.
 
 
-4. The user can exit the game at any time.
-
-Yes - there are many options for the user to exit game. They can exit from MENU by entering 3. They can then exit during the game rounds, by entering N. The user is also always required to confirm before exiting the game.
-
-<img src="assets/images/menu.png" width="600px">
-<img src="assets/images/round-2.png" width="600px">
-<img src="assets/images/exit1.png" width="600px">
+3. As a Site User I can click on a recipe post so that I can view its content.
 
 
-5. The game displays a cool, clear grid where the user can visually see their battlefield.
-Yes - the grid is clear and cool. The green color makes adds to the retro 80's console feel I wanted to bring to the game
-
-<img src="assets/images/grid.png" width="600px">
+4. As a Site User I can click the like button on a recipe so that I can like/unlike recipes.
 
 
-6. The game grid is updated with every round, visually portraying hits and misses, and the user is provided with valuable information: 
-    1. Message confirming hit, miss or duplicate hit.
-    2. Missiles left.
-    3. Option to launch next missile or exit the game.
-Yes - all of this is displayed through-out each round. It is clear and easy to read!
+5. As a Site User I can comment on a recipe so that I can interact with the content and other site users.
 
-<img src="assets/images/grid.png" width="600px">
 
-7. The user will want to play again and again!
+6. As a Site User I can favourite a recipe so that collect recipes to easily view them on my _Favourites Page_ when needed to.
+
+
+7. As a Admin User I can create a recipe template so that site users can post their recipes easily.
+
+
+8. As a Admin User I can Create, Read, Update and Delete recipes so that I can manage the sites content.
+
+
+9. As a Admin/Site User I can view a list of recipes so that I can browse and select one to read.
+
+
+10. As a Admin/Site User I can view the number of likes, favourites and posts so that I can track the recipe's popularity.
+
+
+11. As a Admin User I can create, read, update and delete recipes so that I can manage the blog content.
+
+
+12. As a user I can click on the favourites so I can view my list of favourite recipes.
 
 * * *
 
