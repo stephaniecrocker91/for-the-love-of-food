@@ -8,7 +8,7 @@ ABOUT THE WEBSITE:
 
 * * * 
 
-[Link to deployed site](https://battlefields-blast.herokuapp.com/)
+[Link to deployed site](https://for-the-love-of-food1.herokuapp.com/)
 
 
 
@@ -138,11 +138,11 @@ When clicking favourites, the user can view all their favourite posts.
 
 * * *
 
-User can click on "Write my own Recipe" , which leads them to the following section..
+User can click on "Create Recipe" , which leads them to the following section..
 
-* ^^^&&***(((((())))))
-* !!!!
-* !!!!!
+* NavBar and Header
+* Sub-Header "Favourites"
+* Form to fill out creating recipe.
 
 
 <img src="assets/images/exit1.png" width="500px">
@@ -188,7 +188,7 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 
 * * * 
 
-## SURFACE&&&&&&&&&&&&&&&&!!!!!!!!:
+## SURFACE
 
 * * *
 * When initially planning this site, I knew it would be clean, light and minimalistic. 
@@ -326,18 +326,35 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
 
 <img src="assets/images/error-5.png" width="500px"> 
 
-* CREATE RECIPE - st be in predetermined list with values: Y, N
+* CREATE RECIPE - (create_recipe.html) - this is the page where autheticated users can create their own recipe, filling in a simple form.
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Create your Recipe - sub header 
+    * Form: fields (title, category, author, ingredients, instructions, image, status)
+    * Post button.
 
 
 <img src="assets/images/error-6.png" width="500px"> 
 
 
-* EDIT RECIPE -
+* EDIT RECIPE - (update_recipe.html) - this is the page where autheticated users can edit their own recipe, filling in a simple form. User can only edit the posts they created!
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Edit your Recipe - sub header 
+    * Form: fields (title, category, author, ingredients, instructions, image, status)
+    * Post button.
+    * Delete recipe button
     
 <img src="assets/images/round-3.png" width="500px"> 
     
 
-* DELETE RECIPE -
+* DELETE RECIPE - (delete_recipe.html) - this is the page where autheticated users can delet their own recipe. User can only delete the posts they created! This pops up after clicking on the delete this post button on the edit_recipe.html
+    * Navbar: FontAweseom Icon & Home, Register, and Login
+    * Header: "For the Love of Food"
+    * Delete your Recipe - sub header 
+    * Security: are you sure you want to delete this recipe?
+    * Delete button.
+
 
 <img src="assets/images/final-score.png" width="500px"> 
 
@@ -346,9 +363,8 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
 
 ### Future features
 
-* Prepopulated published status of post/ or select draft and store in different place (to continue working on). 
-* Alert to fade away after 3 seconds.
-* Search bar -- in nav.
+* Prepopulated author = user authenticated
+* 
 
 
 * * * 
