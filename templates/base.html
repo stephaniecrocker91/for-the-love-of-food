@@ -47,10 +47,10 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <div class="form-inline my-2 my-lg-0">
+      
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </div>
   </div>
 </nav> -->
 
@@ -89,15 +89,13 @@
           </li>
           {% endif %}
         </ul>
+        {% if user.is_authenticated %}
+        <div class="form-inline my-2 my-lg-0">
+          <a href="{% url 'create_recipe' %}"><button class="btn btn-dark my-2 my-sm-0" type="submit">Create Recipe</button>
+        </div></a>
+        {% endif %}
       </div>
-      {% if user.is_authenticated %}
 
-      <span class="navbar-text">
-        <a href="{% url 'create_recipe' %}"><button type="button" class="btn btn-dark">Create
-            Recipe</button></a>
-      </span>
-
-      {% endif %}
     </div>
   </nav>
 
