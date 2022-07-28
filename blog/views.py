@@ -25,27 +25,13 @@ class RecipeFavourites(generic.ListView):
         queryset = user.recipe_fave.all()
         return queryset
 
-    # def get(self, request, *args, **kwargs):
-    #     recipes = Recipe.objects.all()
-    #     recipe_favourites = []
-    #     for recipe in recipes:
-    #         if recipe.favourites.filter(id=self.request.user.id).exists():
-    #             recipe_favourites.append(recipe)
-
-        # return render(
-        #     request, "recipe_favourites.html",
-        #     {
-        #         'recipe_favourites': recipe_favourites
-        #     },
-        # )
-
 class RecipeDrafts(generic.ListView):
     model = Recipe 
     template_name = 'recipe_drafts.html'
     paginated_by = 6
     context_object_name = 'recipe_drafts'  
     def get_queryset(self):
-        queryset = Recipe.objects.filter(status=0)
+        queryset = Recipe.objects.filter(status=0,) 
         return queryset
 
 
@@ -137,15 +123,17 @@ class Favourite(View):
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'author', 'ingredients', 'image', 'directions', 'status']
-    print("create recipe")
-    print(fields)
+    fields = ['title', 'category', 'author', 'ingredients', 'directions', 'image', 'status']
+    # print("create recipe")
+    # print(fields)
     success_url = '/'
 
 class UpdateRecipeView(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
-    fields = ['title', 'category', 'ingredients', 'image', 'directions',]
+    fields = ['title', 'category', 'author', 'ingredients', 'directions', 'image', 'status']
+    
+    print(fields)
     success_url = '/'
 
 class DeleteRecipeView(DeleteView):
