@@ -31,7 +31,8 @@ class RecipeDrafts(generic.ListView):
     paginated_by = 6
     context_object_name = 'recipe_drafts'  
     def get_queryset(self):
-        queryset = Recipe.objects.filter(status=0,) 
+        user = self.request.user
+        queryset = Recipe.objects.filter(status=0, author=user) 
         return queryset
 
 
