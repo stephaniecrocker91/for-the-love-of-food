@@ -124,16 +124,20 @@ class Favourite(View):
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'author', 'ingredients', 'directions', 'image', 'status']
+    fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
     # print("create recipe")
     # print(fields)
     success_url = '/'
+    
+    def form_valid(self, form):
+        user = self.request.user
+        form.instance.author = user
+        return super(CreateRecipeView, self).form_valid(form)
 
 class UpdateRecipeView(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
     fields = ['title', 'category', 'author', 'ingredients', 'directions', 'image', 'status']
-    
     print(fields)
     success_url = '/'
 
