@@ -717,20 +717,21 @@ IN HEROKU ...
 
 
 
-#### FINAL DEPLOYMENT..
+#### FINAL PRODUCTION DEPLOYMENT..
+
+IN GITPOD / SETTINGS.PY 
+1. Set DEBUG flag to False!! If not...
+    * Django will serve the static  files such as css files itself, instead of relying on Cloudinary.
+    * Django will continue to give us verbose error pages which can reveal credentials, and things you want to keeo secret. This will compromise your site!
+2. Add a few more settings--> X_FRAME_OPTIONS = 'SAMEORIGIN'
+    * Without this our summer note editor would no  longer work when we deploy the project. This is due to Cross-Origin Resource Sharing, which tells the browser which resources are permitted to be loaded.
+3. Save, add and commit as "deployment commit", and push to github.
+
+4. 
 
 
 
-8. Confid Vars enter:
-    1. Key: PORT
-    2. Value: 8000
-8. Go to Buildpacks and click Add Buildpack.
-9. Select Python and save changes.
-10. Add NodeJS and save changes (Python on top and NodeJS below. You can drag the to re-order)
-11. Scroll to Deploy Tab, select Github and confirm Connect to Github.
-12. Search for your repository and click Connect.
-13. Select Deploy Branch and deploy in master/main.
-14. Your deployed app is live!
+
 
 
 
