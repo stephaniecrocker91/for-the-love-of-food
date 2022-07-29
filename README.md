@@ -457,10 +457,8 @@ wsgi.py
 
 #### [HTML VALIDATOR](https://validator.w3.org/)
 
-Tested and no errors found.
-
-One error appears!
-<img src="static/images/test-w3.png" width="800px">
+Tested and no errors found!
+<img src="static/images/test-html.png" width="800px">
 This was easily solved by changing my alt value to -Image of recipe.
 
 
@@ -504,11 +502,9 @@ Testing this site manually was a long and very detailed process. No errors were 
 * * * 
 I would like to resolve the following issue. 
 
-* CSS styling not loading in my deployed heroku app.
-* When a user creates a recipe, they have the option of selecting any author. This is not good user experience. The author should automatically be pre-filled as the verified authenticated user. This allows for more issues. For example: if the user accidentally creates a post using the ertong authot name, they no longer have the ability to edit/delete this post.
 * When creating recipe, the user can only select an option from a dropdown meny that has been preset. They cannot add their own category (in the case that they needed to).
 
-<img src="assets/images/victory-bug.png" width="200px">
+<img src="static/images/category-error.png" width="1000px">
 
 
 * * * 
@@ -578,34 +574,187 @@ You can Fork the Repository. This makes a copy of the original repository on our
 * * * 
 
 
-### Using Code Institute's mock terminal for Heroku
+### SETTING UP DJANGO PROJECT & DEPLOYMENT
+
+* * *
+#### SETTING UP THE DJANGO PROJECT...
+
+In GITHUB: Once the repository has been created using the Code Institute student template....
+
+1. Install Django and supporting libraries. 
+    * Django and gunicorn --> pip3 install 'django<4' gunicorn
+    * Supporting libraries --> pip3 install dj_database_url psycopg2
+    * Cloudinary libraries --> pip3 install dj3-cloudinary-storage
+
+2. Create a requirements file --> pip3 freeze --local > requirements.txt
+
+3. Create your project: in this case for-the-love-of-food
+
+4. Create an app using command --> python3 manage.py startapp APP_NAME
+
+5. Add it to installed apps --> INSTALLED_APPS = [
+    …
+    'APP_NAME',
+]
+
+6. Save file and migrate changes using command --> python3 manage.py migrate
+
+7. Run server to test
+
+8. Commit and push changes to github
+
+#### DEPLOYING THE APP TO HEROKU...
+
+1. Create Heroku Account
+2. In Heroku dashboard: go to Create new app.
+3. Give your app a unique name.
+4. Select region --> EUROPE
+5. Click create App.
+6. Go to Database App/Resources/ Add-ons and search and click 'Heroku Postgres'.
+7. Go to the Settings tab, scroll down to Config Vars and select Reveal Config Vars and copy text.
+
+IN GITPOD...
+
+8. Create env.py file on top of level directory.
+9. Import os library
+10. set environment variables --> os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"
+11. Add in a secret key --> os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+
+IN HEROKU ...
+
+12. Add secret Key to config vars --> SECRET_KEY, “randomSecretKey”
+
+IN GITPOD / IN SETTINGS.PY
+
+13. Reference env.py file -->
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+   import env
+
+14. Remove the secret key and replace it with the following variable--> SECRET_KEY = os.environ.get('SECRET_KEY')
+
+
+15. Comment out the DataBases section -->
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
+
+ 16. Add new database section -->
+ DATABASES = {
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+17. In the terminal, save files and make migrations --> python3 manage.py migrate
+
+GETTING STATIC AND MEDIA FILES STORED ON CLOUDINARY...
+
+18. Create a cloudinary account, and copy the CLOUDINARY_URL from the dashboard.
+
+19. Add url to env.py -->
+os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+
+BACK IN HEROKU ...
+
+20. Paste Cloudinary URL to Heroku Config Vars -->
+Add to Settings tab in Config Vars e.g. COUDINARY_URL, cloudinary://************************
+
+21. In config vars, add DISABLE_COLLECTSTATIC, 1. This will be rmeoved before final deployment.
+
+IN GITPOD / SETTINGS.PY
+
+22. Install Cloudinary libraries -->
+INSTALLED_APPS = [
+    …,
+    'cloudinary_storage',
+    'cloudinary',
+    …,
+]
+
+23. Tell Django to use Cloudinary to store media and static files -->
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+23. Link file to templates -->
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+24. Change template directory to templates array -->
+TEMPLATES = [
+    {
+        …,
+        'DIRS': [TEMPLATES_DIR],
+       …,
+            ],
+        },
+    },
+]
+
+25. Add heroku hostname to ALLOWED_HOSTS-->
+ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
+
+IN GITPOD...
+
+26. Create 3 new folders: media, static and templates
+
+27. Create procfile and add code -->
+web: gunicorn PROJ_NAME.wsgi
+
+28. In terminal --> Add, Commit and Push
+
+IN HEROKU ...
+
+29. Deploy manually -->  Github as deployment method, on main branch
+
+
+
+#### FINAL DEPLOYMENT..
+
+
+
+8. Confid Vars enter:
+    1. Key: PORT
+    2. Value: 8000
+8. Go to Buildpacks and click Add Buildpack.
+9. Select Python and save changes.
+10. Add NodeJS and save changes (Python on top and NodeJS below. You can drag the to re-order)
+11. Scroll to Deploy Tab, select Github and confirm Connect to Github.
+12. Search for your repository and click Connect.
+13. Select Deploy Branch and deploy in master/main.
+14. Your deployed app is live!
+
+
+
+### Forking The GitHub Repository
 
 * * *
 
-This site was deployed using the following steps:
+You can Fork the Repository. This makes a copy of the original repository on our Github account so you can make changes without affecting the original repository.
+1. Log into GitHub and locate the GitHub repository you want.
+2. Click on the "Fork" button which is located in the top right corner.
+3. You will now have a copy of the original repository in your GitHub account.
 
-1. Make sure that the project has been created using Code Institute Python template.
-2. Make sure all python scripts have a new line character at the end of the text inside.
-3. With installing packages type in command: 'pip3 freeze > requirements.txt'. This will allow them to work in Heroku, and the Code Institute template will be updated automatically.
-4. Commit and push changes to GitHub
-5. Create Heroku Account
-6. In Heroku dashboard: go to Create new app.
-7. Give your app a unique name
-8. Select region
-9. Click create App.
-10. Go to the Settings tab, scroll down to Config Vars and select Reveal Config Vars.
-11. Confid Vars enter:
-    1. Key: PORT
-    2. Value: 8000
-12. Go to Buildpacks and click Add Buildpack.
-13. Select Python and save changes.
-14. Add NodeJS and save changes (Python on top and NodeJS below. You can drag the to re-order)
-15. Scroll to Deploy Tab, select Github and confirm Connect to Github.
-16. Search for your repository and click Connect.
-17. Select Deploy Branch and deploy in master/main.
-18. Your deployed app is live!
+* * * 
 
-[Link to deployed site](https://battlefields-blast.herokuapp.com/)
+### Cloning the Project.
+* * *
+1. Log into GitHub and locate the GitHub repository you want.
+2. Under the repository name, click "Code" button which will come up with a dropdown menu.
+3. Where it says Clone, copy the link below.
+
+* * * 
+
+
+[Link to deployed site](https://for-the-love-of-food1.herokuapp.com/)
 
 * * *
 
