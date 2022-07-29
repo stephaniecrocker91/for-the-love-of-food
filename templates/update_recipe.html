@@ -12,7 +12,7 @@
                     <h1 class="edit-title">Edit your Recipe: </h1>
                 </div>
             </div>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="btn btn-dark">UPDATE</button>

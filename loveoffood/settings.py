@@ -165,3 +165,52 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SUMMERNOTE_THEME = 'bs4'
+
+# django_summernot config
+SUMMERNOTE_CONFIG = {
+    # Use this when you're already using Bootstrap/jQuery based themes.
+    'iframe': True,
+
+    # You can put custom Summernote settings
+    'summernote': {
+
+        # Change editor size
+        'width': '100%',
+        'height': '480',
+
+        # Use proper language setting automatically (default)
+        'lang': None,
+
+        'fontNames': ['Montserrat'],
+        'fontNamesIgnoreCheck': ['Montserrat'],
+        'fontSizes': ['16'],
+        'fontSizeUnits': ['px'],
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['font', ['bold', 'underline']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['fontSizes', ['16']],
+            ['style', ['p', 'h2', 'h3', 'h4', 'h5', 'h6']],
+            ['color', ['black']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['view', ['fullscreen', 'help']],
+        ],
+    },
+    # # pointing summernote at css file for custom rule implementation
+    # # kept seperate as other rules already loading into page
+    'css': (
+        'https://res.cloudinary.com/darmodjdz/raw/upload/v1658929922/static/css/style.6d6e0bcdffe2.css',
+    ),
+    # 'js': (
+    #     'https://ci-project-five-druid-computers.s3.eu-west-1.amazonaws.com/static/js/summernote.js',
+    # ),
+    # Lazy initialization
+    # If you want to initialize summernote at the bottom of page,
+    # set this as True and call `initSummernote()` on your page.
+    'lazy': False,
+}

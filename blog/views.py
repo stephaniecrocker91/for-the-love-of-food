@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from .models import Recipe
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 # views here...
 
@@ -124,9 +125,8 @@ class Favourite(View):
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
-    # print("create recipe")
-    # print(fields)
+    # fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
+    form_class = RecipeForm
     success_url = '/'
     
     def form_valid(self, form):
@@ -137,8 +137,8 @@ class CreateRecipeView(CreateView):
 class UpdateRecipeView(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
-    fields = ['title', 'category', 'author', 'ingredients', 'directions', 'image', 'status']
-    print(fields)
+    form_class = RecipeForm
+    # fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
     success_url = '/'
 
 class DeleteRecipeView(DeleteView):

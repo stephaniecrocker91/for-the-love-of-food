@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:wght@100&display=swap');
+
+
+/* Summernote class */
+.note-editable {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    text-align: left;
+}
