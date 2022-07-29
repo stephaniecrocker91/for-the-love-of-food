@@ -17,23 +17,26 @@ class RecipeList(generic.ListView):
 
 
 class RecipeFavourites(generic.ListView):
-    model = Recipe 
+    model = Recipe
     template_name = 'recipe_favourites.html'
     paginated_by = 6
-    context_object_name = 'recipe_favourites'  
+    context_object_name = 'recipe_favourites'
+
     def get_queryset(self):
         user = self.request.user
         queryset = user.recipe_fave.all()
         return queryset
 
+
 class RecipeDrafts(generic.ListView):
-    model = Recipe 
+    model = Recipe
     template_name = 'recipe_drafts.html'
     paginated_by = 6
-    context_object_name = 'recipe_drafts'  
+    context_object_name = 'recipe_drafts'
+
     def get_queryset(self):
         user = self.request.user
-        queryset = Recipe.objects.filter(status=0, author=user) 
+        queryset = Recipe.objects.filter(status=0, author=user)
         return queryset
 
 
@@ -51,7 +54,7 @@ class RecipeDetail(View):
             faved = True
 
         return render(
-            request, 
+            request,
             "recipe_detail.html",
             {
                 "recipe": recipe,
@@ -84,7 +87,7 @@ class RecipeDetail(View):
             comment_form = CommentForm()
 
         return render(
-            request, 
+            request,
             "recipe_detail.html",
             {
                 "recipe": recipe,
@@ -96,6 +99,7 @@ class RecipeDetail(View):
             },
         )
 
+
 class RecipeLike(View):
 
     def post(self, request, slug, *args, **kwargs):
@@ -105,7 +109,6 @@ class RecipeLike(View):
             recipe.likes.remove(request.user)
         else:
             recipe.likes.add(request.user)
-        
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
@@ -118,28 +121,27 @@ class Favourite(View):
             recipe.favourites.remove(request.user)
         else:
             recipe.favourites.add(request.user)
-        
-        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))         
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
 class CreateRecipeView(CreateView):
     model = Recipe
     template_name = 'create_recipe.html'
-    # fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
     form_class = RecipeForm
     success_url = '/'
-    
+
     def form_valid(self, form):
         user = self.request.user
         form.instance.author = user
         return super(CreateRecipeView, self).form_valid(form)
 
+
 class UpdateRecipeView(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
     form_class = RecipeForm
-    # fields = ['title', 'category', 'ingredients', 'directions', 'image', 'status']
     success_url = '/'
+
 
 class DeleteRecipeView(DeleteView):
     model = Recipe

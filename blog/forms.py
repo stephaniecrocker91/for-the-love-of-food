@@ -4,7 +4,7 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class CommentForm (forms.ModelForm):
-    class Meta: 
+    class Meta:
         model = Comment
         fields = ('body',)
 
@@ -12,7 +12,9 @@ class CommentForm (forms.ModelForm):
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ('title', 'category', 'ingredients', 'directions', 'image', 'status')
+        fields = (
+            'title', 'category', 'ingredients', 'directions',
+            'image', 'status')
         widgets = {
             'ingredients': SummernoteWidget(),
             'directions': SummernoteWidget()

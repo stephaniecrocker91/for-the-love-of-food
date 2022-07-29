@@ -15,9 +15,9 @@
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
                 <img class="card-img-top"
-                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
+                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg" alt="Image of recipe">
                 {% else %}
-                <img class="card-img-top" src="{{ recipe.image.url }}">
+                <img class="card-img-top" src="{{ recipe.image.url }}" alt="Image of recipe">
                 {% endif %}
                 <div class="image-flash">
                   <p class="author">Author: {{ recipe.author }}</p>

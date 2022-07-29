@@ -14,9 +14,9 @@ ABOUT THE WEBSITE:
 
 _For the Love of Food_ is a public online blog-styled platford where users can create a profile and digitalize their own recipes. Users can also view other users recipes, comment, like and favourite them! This interactive platform is designed to provide a a rich online community as users interact with each others recipe posts.
 
-<img src="assets/images/am-i-responsive.png" width="500px">
+<img src="static/images/am-i-responsive.png" width="500px">
 
-<img src="assets/images/homescreen.png" width="500px">
+<img src="static/images/homescreen.png" width="500px">
 
 * * * 
 
@@ -88,7 +88,7 @@ STRUCTURE:
     * Search feature. !!!!!?????
     * You can immeditaley view the paginated list of recipe Posts (authenticated or not).
 
-<img src="assets/images/homescreen.png" width="500px">
+<img src="static/images/homescreen.png" width="500px">
 
 *   Depending on wether the user is authenticated and logged in or not navbar may display: 
     * FontAweseom Icon & Home, Register, and Login 
@@ -115,7 +115,8 @@ When user clicks a specific Recipe Post:
 * Comments section below: user may view comments (oldest at the top, scrolling down to newest), and comment posting as user name.
 
 
-<img src="assets/images/menu.png" width="500px">
+<img src="static/images/recipe-detail.png" width="500px">
+<img src="static/images/recipe-detail2.png" width="500px">
 
 * * * 
   
@@ -129,7 +130,7 @@ When clicking favourites, the user can view all their favourite posts.
 * Sub-Header "Favourites"
 * Paginated list of favourite posts. Similar to the landing home page.
 
-<img src="assets/images/instructions.png" width="500px">
+<img src="static/images/favourite-recipes.png" width="500px">
 
 * * * 
 
@@ -145,7 +146,8 @@ User can click on "Create Recipe" , which leads them to the following section..
 * Form to fill out creating recipe.
 
 
-<img src="assets/images/exit1.png" width="500px">
+<img src="static/images/create-recipe.png" width="500px">
+<img src="static/images/create-recipe2.png" width="500px">
   
 
 
@@ -207,7 +209,11 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 
 Mostly white, black, grey and a pop of green in afew buttons. Most of the color will come from the images uploaded by uses. 
 
-<img src="./assets/images/retro-terminal.png" width="800px">
+<img src="./static/images/color1.png" width="800px">
+<img src="./static/images/color2.png" width="800px">
+<img src="./static/images/color3.png" width="800px">
+<img src="./static/images/color4.png" width="800px">
+
 
 
 * * * 
@@ -222,7 +228,7 @@ Light, spaced, delicate and clean font.
 
 
 
-<img src="assets/images/spaces-letters-font.png" width="500px">
+<img src="static/images/montserrat.png" width="500px">
 
 ### Images and Icons
 
@@ -232,7 +238,7 @@ Use of a few font-awesome black icons to add some charater.
 Still very minimalistic!
 
 
-<img src="assets/images/grid.png" width="500px">
+<img src="static/images/icons.png" width="500px">
 
 * * * 
 
@@ -250,8 +256,8 @@ FEATURES:
     * Without having set up an authenticated user log, the user can view the recipe details. They can just click on the title and will be redirected to the recipe_detail.html page.
 
 
-  <img src="assets/images/name-1.png" width="500px"> 
-  <img src="assets/images/name-2.png" width="500px"> 
+  <img src="static/images/homescreen.png" width="500px">
+
 
 
 *   RECIPE DETAIL: (recipe_detail.html) User can view the recipe details. 
@@ -266,7 +272,8 @@ FEATURES:
     * Recipe instructions
     
 
- <img src="assets/images/error.png" width="500px"> 
+<img src="static/images/recipe-detail.png" width="500px">
+<img src="static/images/recipe-detail2.png" width="500px">
 
 *   REGISTER - (account/signup.html)
     * Navbar: FontAweseom Icon & Home, Register, and Login
@@ -279,7 +286,7 @@ FEATURES:
         * Passoword (again)
         * Submit button --> Sign Up
 
- <img src="assets/images/error-2.png" width="500px"> 
+ <img src="static/images/register.png" width="500px"> 
 
  When registered and logged in you will be able to view the following in the nav bar: Home, Favourites, Drafts, Logout, Create Recipe, and the listed recipes.
  Before this you will only see: Home, Register, and Login.
@@ -294,7 +301,7 @@ FEATURES:
         * Remember me optional checkbox (optional)
         * Submit button --> Sign In
 
- <img src="assets/images/error-3.png" width="500px"> 
+ <img src="static/images/login.png" width="500px"> 
 
 When logged in you will be able to view the following in the nav bar: Home, Favourites, Drafts, Logout, Create Recipe, and the listed recipes.
 
@@ -305,7 +312,8 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * Message - are yu sure you wnat to sign out?
     * Submit button --> Sign Out
 
- <img src="assets/images/gameover.png" width="500px"> 
+ <img src="static/images/logout.png" width="500px"> 
+ 
  Once logged out you will only bew able to view: Home, Register, and Login.
 
 * FAVOURITES - (recipe_favourites.html) -> This is the page that will load, from an authenticated logged in user, when clicking on Favourites.
@@ -314,7 +322,7 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * You can immeditaley view the favourited recipes by this user. 
     * User cna click onto the recipe title to get the recipe details.
 
-<img src="assets/images/error-4.png" width="500px"> 
+ <img src="static/images/favourite-recipes.png" width="500px"> 
 
 
 * DRAFTS - (recipe_drafts.html) -> This is the page that will load, from an authenticated logged in user, when clicking on Drafts. It will display all the recipes that have not been published yet.
@@ -324,7 +332,7 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * User can click onto the recipe title to get the recipe details.
 
 
-<img src="assets/images/error-5.png" width="500px"> 
+<img src="static/images/drafts.png" width="500px"> 
 
 * CREATE RECIPE - (create_recipe.html) - this is the page where autheticated users can create their own recipe, filling in a simple form.
     * Navbar: FontAweseom Icon & Home, Register, and Login
@@ -334,7 +342,8 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * Post button.
 
 
-<img src="assets/images/error-6.png" width="500px"> 
+<img src="static/images/create-recipe.png" width="500px">
+<img src="static/images/create-recipe2.png" width="500px">
 
 
 * EDIT RECIPE - (update_recipe.html) - this is the page where autheticated users can edit their own recipe, filling in a simple form. User can only edit the posts they created!
@@ -345,7 +354,10 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * Post button.
     * Delete recipe button
     
-<img src="assets/images/round-3.png" width="500px"> 
+<img src="static/images/edit-recipe.png" width="500px">
+<img src="static/images/edit-recipe2.png" width="500px"> 
+<img src="static/images/edit-recipe3.png" width="500px"> 
+
     
 
 * DELETE RECIPE - (delete_recipe.html) - this is the page where autheticated users can delet their own recipe. User can only delete the posts they created! This pops up after clicking on the delete this post button on the edit_recipe.html
@@ -356,7 +368,7 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
     * Delete button.
 
 
-<img src="assets/images/final-score.png" width="500px"> 
+<img src="static/images/delete-recipe.png" width="500px"> 
 
 
 * * * 
@@ -386,7 +398,7 @@ When logged in you will be able to view the following in the nav bar: Home, Favo
 
 * * *
 
-*   [Django](https://www.djangoproject.com/
+*   [Django](https://www.djangoproject.com/)
 *   [GitHub](https://github.com/)
 *   [GitPod](https://www.gitpod.io/)
 *   [Heroku](https://id.heroku.com/login)
@@ -419,7 +431,43 @@ For testing I used the following sources:
 
 Tested and no errors found.
 
-<img src="assets/images/no-errors.png" width="800px">
+urls.py
+<img src="static/images/test-pep8.png" width="800px">
+forms.py
+<img src="static/images/test-pep8-2.png" width="800px">
+admin.py
+<img src="static/images/test-pep8-3.png" width="800px">
+apps.py
+<img src="static/images/test-pep8-4.png" width="800px">
+views.py
+<img src="static/images/test-pep8-5.png" width="800px">
+models.py
+<img src="static/images/test-pep8-6.png" width="800px">
+tests.py
+<img src="static/images/test-pep8-9.png" width="800px">
+asgi.py
+<img src="static/images/test-pep8-10.png" width="800px">
+settings.py
+<img src="static/images/test-pep8-11.png" width="800px">
+A couple of long lines, but I am unable to make them any shorter.
+urls.py
+<img src="static/images/test-pep8-12.png" width="800px">
+wsgi.py
+<img src="static/images/test-pep8-13.png" width="800px">
+
+#### [Validator W3](https://validator.w3.org/)
+
+Tested and no errors found.
+
+One error appears!
+<img src="static/images/testw3.png" width="800px">
+This was easily solved by changing my alt value to -Image of recipe.
+
+
+
+
+
+
 
 * * *
 
