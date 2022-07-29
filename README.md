@@ -727,11 +727,13 @@ IN GITPOD / SETTINGS.PY
     * Without this our summer note editor would no  longer work when we deploy the project. This is due to Cross-Origin Resource Sharing, which tells the browser which resources are permitted to be loaded.
 3. Save, add and commit as "deployment commit", and push to github.
 
-4. 
+IN HEROKU...
 
+4. In reveal config vars, remove DISABLE_COLLECTSTATIC environment variable.
 
+5. Go to deploy tab, scroll down to the end and deplopy our branch! 
 
-
+6. Your app has been deployed to heroku!
 
 
 
@@ -766,18 +768,16 @@ CREDITS:
 * * *
 
 ### Content & Code
-* A couple of the code institute tutors helped me with some issues I was having. 
-    * I encountered a bug: When finishing a game and wanting to launch game again, my X's and -'s remained displayed on the board. Sean from Code Institute helped me solve this, and suggested I use the following code:
-    
-    <img src="assets/images/sean-bug.png" width="1000px">
-    <img src="assets/images/sean-bug-2.png" width="1000px">
 
-* Coming up with how to create my grid was a challenge! After brainstorming, I researched a few different ways people had achieved this. Some of the tutorials I looked at:
-    * [Code Academy](https://discuss.codecademy.com/t/excellent-battleship-game-written-in-python/430605)
-    * [Python for begginers](https://bigmonty12.github.io/battleship)       
-    * [Stack Exchange](https://codereview.stackexchange.com/questions/122970/python-simple-battleship-game)
-* My peers at Code Institute Slack were also incredibly helpful!
-* My mentor Chris helped me better understand how to best validate my code.
+This project was extremely challengin for me. I used several resources to get me to the finish line, as well as the help of tutors, my mentor and fellow students at Code Institute.
+
+* I used the "I think therefore I blog" walk through project as a starting point and template. As per this walktrhiugh projects, I created a blog like page that stored recipes. I used some snippets of code as reference, and nbuilt upon it with more features. (Such as favourites view, create recipe view, edit and delete, and drafts view).
+* Oisin (tutor) in Code Institute helped me troubleshoot some issues I was having with my cloudinary images not loading onto my site. 
+* Alan (tutor) in Code Institute helped me troubleshoot some issues I was having with fontawesome icons. Thanks!
+* Sean (tutor) at Code Instutute helped me troubleshoot an error I was getting when connecting my urls for creating a recipe.
+* Matt (a former Code Instutute student) helped me toroubleshoot an issue I was having with displaying summernotes from the front end, and my cloudinary image not updating wehen editing my form. Thank you Matt!!!
+* Chris (my mentor) helped me plan out the project and supported me every step of the way.
+* Codemy.com --> I followed a few tutorials to get ideas as how to create/edit/delete my recipe blog posts. https://www.youtube.com/watch?v=J7xaESAddDQ
 
 
        
