@@ -7,85 +7,87 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
+
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title"> {{ recipe.title }}
+                <h1 class="post-title recipe-title"> {{ recipe.title }}
                     {% if user.is_authenticated %}
-                        {% if user.id == recipe.author.id %}
-                            <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
+                    {% if user.id == recipe.author.id %}
+                    <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
                                     class="fas fa-edit"></i></a></span></small>
-                        {% endif %}
+                    {% endif %}
                     {% endif %}
                     <!-- <small><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete</a></span></small> -->
 
                 </h1>
-                <p class="post-subtitle"> Category: {{ recipe.category }}</p>
+                    <p class="post-subtitle"> <span class="bold"> Category: </span>{{ recipe.category }}</p>
 
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
-                <div class="row">
+                    <!-- Post author goes before the | the post's created date goes after -->
+                    <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+                    <div class="row">
+                        <div class="col-1">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
+                                    {% csrf_token %}
 
-                    <div class="col-1">
-                        <strong>
+                                    {% if liked %}
+                                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}"
+                                        class="btn-like"><i class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}"
+                                        class="btn-like"><i class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                {% endif %}
+                                <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
+                            </strong>
+                        </div>
+                        <div class="col-1">
+                            <!-- The number of likes goes before the closing strong tag -->
                             {% if user.is_authenticated %}
-                            <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
+                            <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
                                 {% csrf_token %}
 
-                                {% if liked %}
-                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
-                                        class="fas fa-heart"></i></button>
+                                {% if faved %}
+                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                                        class="fas fa-bookmark"></i></button>
                                 {% else %}
-                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
-                                        class="far fa-heart"></i></button>
+                                <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                                        class="far fa-bookmark"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            <span class="text-secondary"><i class="far fa-bookmark"></i></span>
                             {% endif %}
-                            <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
-                        </strong>
+                            <span class="text-secondary"> {{ recipe.number_of_favourites }}</span>
+                        </div>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                {{ total_comments }}
+                            </strong>
+                            {% endwith %}
+                        </div>
                     </div>
-      
-                    <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        {% if user.is_authenticated %}
-                        <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
-                            {% csrf_token %}
 
-                            {% if faved %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
-                                    class="fas fa-bookmark"></i></button>
-                            {% else %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
-                                    class="far fa-bookmark"></i></button>
-                            {% endif %}
-                        </form>
-                        {% else %}
-                        <span class="text-secondary"><i class="far fa-bookmark"></i></span>
-                        {% endif %}
-                        <span class="text-secondary"> {{ recipe.number_of_favourites }}</span>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                            {{ total_comments }}
-                        </strong>
-                        {% endwith %}
-                    </div>
-                </div>
+
                 <div class="col  mb-4  mt-3 left  top">
                     <div class="card-body">
+                        <h3 class="subtitle">Ingredients: </h3>
                         <p class="post-ingredients card-text">{{ recipe.ingredients | safe }}</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in recipe.image.url %}
-                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272">
+                <img
+                    src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272">
                 {% else %}
                 <img src="{{ recipe.image.url }}">
                 {% endif %}
@@ -96,10 +98,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
+        <div class="col card mb-4  mt-3 left top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
+                <h3 class="subtitle">Directions: </h3>
                 <p class="card-text ">{{ recipe.directions | safe}}</p>
 
             </div>

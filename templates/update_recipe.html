@@ -12,12 +12,13 @@
                     <h1 class="edit-title">Edit your Recipe: </h1>
                 </div>
             </div>
-            <form method="POST" enctype="multipart/form-data" >
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="btn btn-dark">UPDATE</button>
             </form>
-            <button class="btn btn-warning"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete
+            </br>
+            <button class="btn btn-danger"><span><a href="{% url 'delete_recipe' recipe.pk %}">Delete
                         Recipe</a></span></button>
         </div>
     </div>
