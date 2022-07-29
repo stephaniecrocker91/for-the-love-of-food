@@ -455,16 +455,24 @@ urls.py
 wsgi.py
 <img src="static/images/test-pep8-13.png" width="800px">
 
-#### [Validator W3](https://validator.w3.org/)
+#### [HTML VALIDATOR](https://validator.w3.org/)
 
 Tested and no errors found.
 
 One error appears!
-<img src="static/images/testw3.png" width="800px">
+<img src="static/images/test-w3.png" width="800px">
 This was easily solved by changing my alt value to -Image of recipe.
 
 
+#### [CSS VALIDATOR](https://jigsaw.w3.org/css-validator/)
 
+style.css
+NO ERRORS FOUND!
+<img src="static/images/style-css.png" width="800px">
+
+summernote.css
+NO ERRORS FOUND!
+<img src="static/images/style-css2.png" width="800px">
 
 
 
