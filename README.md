@@ -486,6 +486,190 @@ Testing this site manually was a long and very detailed process. No errors were 
 * * *
 
 
+HOMEPAGE:
+
+* * *
+
+- Loads properly. No errors or broken links.
+
+<img src="static/images/homescreen.png" width="800px">
+
+- When clicking the fontawesome button (knife and fork), home(in navbar) or the site title (For the Love of Food) link works and we get redirected to the homepage. This works from any part of the site!
+
+- When clicking on Register (in our navbar), or sign up link (in our login page), the link works correctly and re-directs us to the signup.html page.
+
+<img src="static/images/signup2.png" width="800px">
+<img src="static/images/signup.png" width="800px">
+
+- When clicking on Login (in our navbar), or Sign In link (in our Register page), the link works correctly and re-directs us to the login.html page.
+
+<img src="static/images/login1.png" width="800px">
+<img src="static/images/login2.png" width="800px">
+
+- Recipes are displayed in lists, three per row. Unless viewing from a smaller device.  In this case, they are below each other.
+
+<img src="static/images/list-display.png" width="800px">
+<img src="static/images/list-display2.png" width="800px">
+
+- When clicking on any recipe (without being logged in), we are directed to the recipe_detail.html. User can view all the details, amount of likes, favourites and comments. They can view the comments. They CANNOT comment.
+
+<img src="static/images/recipe-detail.png" width="800px">
+<img src="static/images/recipe-detail2.png" width="800px">
+
+
+* * *
+
+SIGNUP:
+
+* * *
+
+- Signup cannot be submitted without enterring username or password. Email is optional!
+<img src="static/images/inputfield1.png" width="800px">
+<img src="static/images/inputfield2.png" width="800px">
+<img src="static/images/inputfield3.png" width="800px">
+
+
+- Once registering, the user is immediately logged in, and an alert comes up displaying who has logged in. The alert disappears after 3 seconds.
+<img src="static/images/alert1.png" width="800px">
+<img src="static/images/alertvanish.png" width="800px">
+
+* * *
+
+LOGIN...
+
+* * *
+
+-  User cannot login withourt compleying the form correctly. Username and password (both case sensitive).
+
+<img src="static/images/login-field.png" width="800px">
+
+- Once logged on, the site user can view the following on the nav bar:
+<img src="static/images/navbar1.png" width="800px">
+
+- if not logged in, the user can only view...
+<img src="static/images/navbar-guest.png" width="800px">
+
+* * *
+
+FROM LOGGED IN USER ...
+
+* * *
+
+- When clicking on any recipe (oncelogged in), we are directed to the recipe_detail.html. User can view all the details, amount of likes, favourites and comments. They can view the comments. Here they have the ability to:
+    * Comment on a post
+    
+    <img src="static/images/comment.png" width="800px">
+    
+    <img src="static/images/comment2.png" width="800px">
+
+    * Like a post
+
+    * Favourite a post
+    <img src="static/images/like-fave-post.png" width="800px">
+
+    * Form cannot be submitted without entering to body field.
+    
+    <img src="static/images/field-warning.png" width="800px">
+
+- When clicking on Create Recipe button in top right corner, the user is directed to create_recipe.html page that requires a form to be submitted.
+    * Summernote is displayed in the text field for Ingredients, and Directions. The default font is Monserrat, 14px and font weight 200.
+
+    <img src="static/images/create-recipe.png" width="800px">
+    
+    <img src="static/images/create-recipe2.png" width="800px">
+
+    * All fields are required to submit. form except for: Image and Status 
+    
+    <img src="static/images/required.png" width="800px">
+    
+    <img src="static/images/required2.png" width="800px">
+    
+    BUG! I would like this alert to be displayed on every field that is. required. I. noticed this is not the case with the Directions field or the title.
+
+    * When clicking Create Recipe, the user is redirected to the homepage. If no image was uploadedm a default is presented. (as in SC example)
+
+    <img src="static/images/create-recipe3.png" width="800px">
+
+    * If the user created the recipe, they can edit it. If they did not create the recipe, this option is not available. SC had a edit fontawesome icon. Teriyaki and potato sides do not! 
+
+     <img src="static/images/create-recipe3.png" width="300">
+
+- When clicking on the Edit icon on the recipe (that is available only if the user created this specific recipe), the user is redirected to the edit_recipe.html page. This is very similar to the create_recipe.html. In this case the fields are pre-populated. 
+
+<img src="static/images/edit-1.png" width="800px">
+<img src="static/images/edit-2.png" width="800px">
+
+There is an extra feature = DELETE RECIPE!  It is in a bright red button, so as to warn the user of teh severity of this button's functinality.
+
+<img src="static/images/edit-3.png" width="800px">
+
+When changing the details and clicking Update Recipe button, the use ris redirected to the home page. The Recipe is updated!!
+
+<img src="static/images/updated-succes.png" width="800px">
+
+
+- When clicking Favourites on navbar, the user is redirected to the favourites page. This renders only the recipes that our user has favourited. They are displayed similar to the homepage. Recipes that have been favourited by other users... these will NOT be displayed.
+
+<img src="static/images/faves-display.png" width="800px">
+<img src="static/images/faves-display2.png" width="800px">
+
+
+- When clicking Drafts on navbar, the user is redirected to the drafts page. This renders only the recipes written by the user, who's status is draft. They are displayed similar to the homepage. Other users drafts will NOT be displayed here. 
+
+<img src="static/images/drafts-display.png" width="800px">
+<img src="static/images/drafts-display2.png" width="800px">
+
+* * *
+
+DELETE
+
+* * *
+
+- When clicking Delete Recipe at the bottom of the edit_recipe.html, the user is redirected to the delete_recipe.html page. This is as a means of security. It asks for the user to confirm wether they are sure they want to delete this file.
+
+<img src="static/images/delete-conf.png" width="800px">
+
+* * *
+
+LOG OUT
+
+* * *
+
+- When clicking on Logout (in our navbar), the link works correctly and re-directs us to the logout.html page. For security, this asks the user if they are sure they want to log out? If they click Logout, they are succesully redirected to the Homepage where limited features are displayed again.
+
+<img src="static/images/logout.png" width="800px">
+
+
+USER AUTHENTIFICATION PROTECTION
+
+* * *
+
+- Added code to ensure the correct user is logged in to access certain urls. If not verified, the following message appears
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 * * * 
@@ -515,38 +699,51 @@ I would like to resolve the following issue.
 
 1. As a Site User I can view a paginated list of posts so that easily select a post to view.
 
+The recipes are easily visbale and viewable in a paginated list which allows for 3 recipes one by another.
 
 2. As a Site User I can register an account so that I can View, post, comment, favourite and like recipes.
 
+Yes - the user can create their own account by clicking on Register (on the navbar), and entering name, email (optional) and password (which must be confirmed twice). They can then View all recipes. They can post their own recipes, comment on any recipe, and like and favourite any recipe.
 
 3. As a Site User I can click on a recipe post so that I can view its content.
 
+Yes - if the user clicks on the recipe post (wether they have an account or not), the will be able to view the details on this recipe. This includes: title, author, date and time of post, category, inredient, preparation, image. They can also view: amount of like, amount of comments, amount of favourites, and the actual comements posted below. Please note: they will not be able to actually comment on the post.
 
 4. As a Site User I can click the like button on a recipe so that I can like/unlike recipes.
 
+Yes - if the site user (who is verified and logged in only) clicks on the fontawesome heart icon, this will automatical create a like on the post. This will increase the amount of likes displayed, and link this user to this post (one to many).
 
 5. As a Site User I can comment on a recipe so that I can interact with the content and other site users.
 
+Yes - the site user (who is verified and logged in only) can comment on any recipe post. The comment will be displayed below... it will go from old to new.
 
 6. As a Site User I can favourite a recipe so that collect recipes to easily view them on my _Favourites Page_ when needed to.
 
+Yes - if the site user (who is verified and logged in only) clicks on the fontawesome bookmark icon, this will automatical create a favourite tag on the post. This will increase the amount of favourites displayed, and link this user to this post (one to many). This will allow allow this recipe to be displayed in the favourites html page. This favourites tab is a tab that is only visible to authenticated and logged in users. It serves as a qay to quickly access their fave posts - improving the users experience.
 
 7. As a Admin User I can create a recipe template so that site users can post their recipes easily.
 
+Yes - as an Admin user I created a template that serves as purpose to create a draft of the recipe. It requires the folllowing fields ot be input: title, category, user (pre-filled as its linked to the user logged in), ingredients, method, image (we have a placeholder in place, so this is not required), status (draft of published).
 
 8. As a Admin User I can Create, Read, Update and Delete recipes so that I can manage the sites content.
 
+Yes - I can log in as an admin superuser and create my own recipes from ther backend. I can also read, update and delete any recipe.
 
 9. As a Admin/Site User I can view a list of recipes so that I can browse and select one to read.
 
+Yes - as a siteuser/admin I can view all the recipes displayed on my homescreen. They are visible wether I am authenticated and logged in or not. They are clearly displayed, and it is easy for me to click onto nay of them to read the full details. 
 
-10. As a Admin/Site User I can view the number of likes, favourites and posts so that I can track the recipe's popularity.
+10. As a Admin/Site User I can view the number of likes, favourites and comments so that I can track the recipe's popularity.
 
+Yes - as admin/site user I can view the amount of likes, favourites, and comments. This is visible wether I am logged in or not.
 
 11. As a Admin User I can create, read, update and delete recipes so that I can manage the blog content.
 
+If I were logged in as a an admin superuser, I can manage every single post. I can create, delete edit any post.  
 
 12. As a user I can click on the favourites so I can view my list of favourite recipes.
+
+Once logged in/verified only, I can click on the favourites tab and view all my favourite posts displayed as a list.
 
 * * *
 
@@ -579,7 +776,9 @@ You can Fork the Repository. This makes a copy of the original repository on our
 * * *
 #### SETTING UP THE DJANGO PROJECT...
 
-In GITHUB: Once the repository has been created using the Code Institute student template....
+_In GITHUB:_
+
+ Once the repository has been created using the Code Institute student template....
 
 1. Install Django and supporting libraries. 
     * Django and gunicorn --> pip3 install 'django<4' gunicorn
@@ -613,18 +812,24 @@ In GITHUB: Once the repository has been created using the Code Institute student
 6. Go to Database App/Resources/ Add-ons and search and click 'Heroku Postgres'.
 7. Go to the Settings tab, scroll down to Config Vars and select Reveal Config Vars and copy text.
 
-IN GITPOD...
+
+_IN GITPOD..._
+
 
 8. Create env.py file on top of level directory.
 9. Import os library
 10. set environment variables --> os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"
 11. Add in a secret key --> os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
 
-IN HEROKU ...
+
+_IN HEROKU ..._
+
 
 12. Add secret Key to config vars --> SECRET_KEY, “randomSecretKey”
 
-IN GITPOD / IN SETTINGS.PY
+
+_IN GITPOD / IN SETTINGS.PY_
+
 
 13. Reference env.py file -->
 import os
@@ -651,21 +856,27 @@ if os.path.isfile("env.py"):
 
 17. In the terminal, save files and make migrations --> python3 manage.py migrate
 
-GETTING STATIC AND MEDIA FILES STORED ON CLOUDINARY...
+
+_GETTING STATIC AND MEDIA FILES STORED ON CLOUDINARY..._
+
 
 18. Create a cloudinary account, and copy the CLOUDINARY_URL from the dashboard.
 
 19. Add url to env.py -->
 os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
 
-BACK IN HEROKU ...
+
+_BACK IN HEROKU ..._
+
 
 20. Paste Cloudinary URL to Heroku Config Vars -->
 Add to Settings tab in Config Vars e.g. COUDINARY_URL, cloudinary://************************
 
 21. In config vars, add DISABLE_COLLECTSTATIC, 1. This will be rmeoved before final deployment.
 
-IN GITPOD / SETTINGS.PY
+
+_IN GITPOD / SETTINGS.PY_
+
 
 22. Install Cloudinary libraries -->
 INSTALLED_APPS = [
@@ -702,7 +913,9 @@ TEMPLATES = [
 25. Add heroku hostname to ALLOWED_HOSTS-->
 ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
 
-IN GITPOD...
+
+_IN GITPOD..._
+
 
 26. Create 3 new folders: media, static and templates
 
@@ -711,7 +924,7 @@ web: gunicorn PROJ_NAME.wsgi
 
 28. In terminal --> Add, Commit and Push
 
-IN HEROKU ...
+_IN HEROKU ..._
 
 29. Deploy manually -->  Github as deployment method, on main branch
 
@@ -719,7 +932,8 @@ IN HEROKU ...
 
 #### FINAL PRODUCTION DEPLOYMENT..
 
-IN GITPOD / SETTINGS.PY 
+_IN GITPOD / SETTINGS.PY_
+
 1. Set DEBUG flag to False!! If not...
     * Django will serve the static  files such as css files itself, instead of relying on Cloudinary.
     * Django will continue to give us verbose error pages which can reveal credentials, and things you want to keeo secret. This will compromise your site!
@@ -727,7 +941,9 @@ IN GITPOD / SETTINGS.PY
     * Without this our summer note editor would no  longer work when we deploy the project. This is due to Cross-Origin Resource Sharing, which tells the browser which resources are permitted to be loaded.
 3. Save, add and commit as "deployment commit", and push to github.
 
-IN HEROKU...
+
+_IN HEROKU..._
+
 
 4. In reveal config vars, remove DISABLE_COLLECTSTATIC environment variable.
 
