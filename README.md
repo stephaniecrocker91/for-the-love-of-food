@@ -84,8 +84,7 @@ STRUCTURE:
 
 *   LANDING PAGE: This is the page that initially loads when you first arrive at the site. 
     * Navbar: FontAweseom Icon & Home, Register, and Login.
-    * Header: "For the Love of Food"
-    * Search feature. !!!!!?????
+    * Header: "For the Love of Food"ß
     * You can immeditaley view the paginated list of recipe Posts (authenticated or not).
 
 <img src="static/images/homescreen.png" width="500px">
@@ -198,8 +197,13 @@ IMPORTANT RELATIONSHIPS BETWEEN TABLES:
 
 * My initial wireframes...
 
-<img src="./assets/images/wireframes-visual.png" width="800px">
-<img src="./assets/images/wireframe-grid-size.png" width="260px">
+<img src="./static/images/wireframe.png" width="500px">
+<img src="./static/images/wireframe2.png" width="500px">
+<img src="./static/images/wireframe7.png" width="500px">
+<img src="./static/images/wireframe4.png" width="500px">
+<img src="./static/images/wireframe5.png" width="500px">
+<img src="./static/images/wireframe6.png" width="500px">
+
 
 * * *
 
@@ -592,7 +596,7 @@ FROM LOGGED IN USER ...
 
     * If the user created the recipe, they can edit it. If they did not create the recipe, this option is not available. SC had a edit fontawesome icon. Teriyaki and potato sides do not! 
 
-     <img src="static/images/create-recipe3.png" width="300">
+     <img src="static/images/create-recipe3.png" width="800">
 
 - When clicking on the Edit icon on the recipe (that is available only if the user created this specific recipe), the user is redirected to the edit_recipe.html page. This is very similar to the create_recipe.html. In this case the fields are pre-populated. 
 
@@ -647,37 +651,13 @@ USER AUTHENTIFICATION PROTECTION
 - Added code to ensure the correct user is logged in to access certain urls. If not verified, the following message appears
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="static/images/private-delete.png" width="800px">
 
 * * * 
 
 
 ###### BUGS & FIXES: 
 
-* 
 
 * * * 
 
