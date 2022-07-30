@@ -655,6 +655,24 @@ USER AUTHENTIFICATION PROTECTION
 
 * * * 
 
+DJANGO ADMINISTRATOR
+
+* * *
+
+- From the backend, the administrator can create, edit and delete any Recipes, Comments, Categories. They can delete users. When making a change to any of these, the results are immediately visible in the front end of the site.
+
+<img src="static/images/admin0.png" width="800px">
+<img src="static/images/admin.png" width="800px">
+<img src="static/images/admin2.png" width="800px">
+<img src="static/images/admin3.png" width="800px">
+<img src="static/images/admin4.png" width="800px">
+
+
+
+
+
+* * * 
+
 
 ###### BUGS & FIXES: 
 
@@ -666,9 +684,11 @@ USER AUTHENTIFICATION PROTECTION
 * * * 
 I would like to resolve the following issue. 
 
-* When creating recipe, the user can only select an option from a dropdown meny that has been preset. They cannot add their own category (in the case that they needed to).
+* When creating recipe, the user can only select an option from a dropdown meny that has been preset. They cannot add their own category (in the case that they needed to). Currently I can only add categories froom the back end. 
 
 <img src="static/images/category-error.png" width="1000px">
+<img src="static/images/category.png" width="8000px">
+
 
 
 * * * 
