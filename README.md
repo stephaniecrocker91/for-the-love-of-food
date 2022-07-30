@@ -668,9 +668,6 @@ DJANGO ADMINISTRATOR
 <img src="static/images/admin4.png" width="800px">
 
 
-
-
-
 * * * 
 
 
@@ -682,6 +679,7 @@ DJANGO ADMINISTRATOR
 #### Unresolved bug 
 
 * * * 
+
 I would like to resolve the following issue. 
 
 * When creating recipe, the user can only select an option from a dropdown meny that has been preset. They cannot add their own category (in the case that they needed to). Currently I can only add categories froom the back end. 
