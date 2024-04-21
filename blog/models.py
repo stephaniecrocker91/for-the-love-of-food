@@ -30,6 +30,7 @@ class Recipe(models.Model):
         User, on_delete=models.CASCADE, related_name="recipe_posts")
     created_on = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
+    shortDescription = models.TextField(blank=True)
     ingredients = models.TextField()
     directions = models.TextField()
     likes = models.ManyToManyField(

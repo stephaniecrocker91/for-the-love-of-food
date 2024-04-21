@@ -17,18 +17,19 @@
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
                 <img class="card-img-top"
-                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg" alt="Placeholder image of food">
+                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg"
+                  alt="Placeholder image of food">
                 {% else %}
                 <img class="card-img-top" src="{{ recipe.image.url }}" alt="Image of recipe">
                 {% endif %}
-                <div class="image-flash">
-                  <p class="author">Author: {{ recipe.author }}</p>
-                </div>
               </div>
               <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link black-text">
-                <h2 class="card-title link-feature">{{ recipe.title }}</h2>
+                <h2 class="card-title padding-sides link-feature">{{ recipe.title }}</h2>
               </a>
-              <p class="card-text">{{ recipe.category }}</p>
+              <div class="padding-sides">
+                <p class="author"><span>CREATED BY</span>:   {{ recipe.author }}</p>
+              </div>
+              <p class="padding-sides italic-light card-text text-muted h6">"{{ recipe.shortDescription }}..."</p>
 
               <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
               {% if user.is_authenticated %}
@@ -36,9 +37,20 @@
               <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit black-text float-end"></i></a>
               {% endif %}
               {% endif %}
-              <hr />
-              <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="far fa-heart"></i>
-                {{ recipe.number_of_likes }}</p>
+              <div class="recipe-likes">
+                <div>
+                  <i class="far fa-heart"></i>
+                  {{ recipe.number_of_likes }}
+                </div>
+                <div>
+                  <i class="far fa-bookmark"></i>
+                  {{ recipe.number_of_favourites }}
+                </div>
+                <div>
+                  <i class="far fa-comments"></i>
+                  {{ total_comments }}
+                </div>
+              </div>
             </div>
           </div>
         </div>

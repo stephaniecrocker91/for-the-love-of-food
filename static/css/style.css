@@ -8,6 +8,26 @@ body {
 
 }
 
+h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.italic-light{
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: .3px;
+    color: #6c757d !important;
+}
+
+.author span {
+    font-size: 13px;
+    font-weight: 500;
+}
+.author{
+    text-transform: capitalize;
+}
+
 /************************ header and navbar */
 
 header {
@@ -27,6 +47,43 @@ header {
 .navbar-brand:hover {
     font-size: 1.5rem;
 }
+
+/************************ header and navbar */
+
+.card {
+    border: none;
+}
+
+.card-body {
+    box-shadow: 0 0 15px -3px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    height: 480px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    object-fit: cover;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.padding-sides{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.recipe-likes{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #6c757d !important;
+    display: flex;
+    gap: 10px;
+}
+
+
+
 
 /************************ buttons */
 .green-box {
@@ -50,10 +107,6 @@ header {
 .black-text {
     color: black;
     text-decoration: none;
-}
-
-.link-feature:hover {
-    font-size: 2.2rem;
 }
 
 .btn-signup {
