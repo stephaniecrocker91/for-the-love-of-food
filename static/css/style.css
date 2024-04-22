@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
 
-/* General body styling */
+/********************* General styling */
 
 body {
     font-family: Montserrat;
@@ -8,17 +8,40 @@ body {
 
 }
 
-.margin-top-bottom {
+.padding-sides{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.margin-top-bottom-50 {
     margin: 50px auto;
 }
+
+.margin-top-20{
+    margin-top: 20px;
+}
+
+.gap{
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    height: 3px!important;
+    color: #4f6273;
+}
+
+/************************ Title/subtitle types */
 
 h2 {
     text-transform: uppercase;
     font-size: 20px;
-}
-
-a:hover {
-    color: #000000a1;
 }
 
 .italic-light{
@@ -28,12 +51,18 @@ a:hover {
     color: #6c757d !important;
 }
 
-.author span {
+.subtitle {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 22px;
+    color:#4f6273;
+}
+
+.subtitle-2 {
     font-size: 13px;
     font-weight: 500;
-}
-.author{
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .light-banner{
@@ -42,13 +71,7 @@ a:hover {
     padding: 20px 0;
 }    
 
-.gap{
-    gap: 20px;
-    justify-content: flex-end;
-    margin-right: 0px;
-}
-
-/************************ header and navbar */
+/************************ NAV BAR */
 
 #nav-logo{
     background-color: #f9f9f9;
@@ -64,12 +87,7 @@ a:hover {
     background-color: black!important;
 }
 
-.btn-dark:hover {
-    color: black;
-    background-color: #4f6173;
-}
-
-/************************ header and navbar */
+/************************ Recipe Cards */
 
 .card {
     border: none;
@@ -87,15 +105,21 @@ a:hover {
     height: 480px;
 }
 
+.card-title:hover {
+    color: #000000a1!important;
+}
+.recipe-likes i:hover{
+    color: black;
+}
+
 .card-img, .card-img-bottom, .card-img-top {
     object-fit: cover;
     height: 300px;
     margin-bottom: 20px;
 }
 
-.padding-sides{
-    padding-left: 20px;
-    padding-right: 20px;
+.author{
+    text-transform: capitalize;
 }
 
 .recipe-likes{
@@ -107,6 +131,10 @@ a:hover {
     gap: 10px;
 }
 
+.card-icons{
+    color: #6c757d !important;
+}
+
 /************************ buttons */
 .green-box {
     background-color: rgb(187, 223, 205, 0.7);
@@ -115,21 +143,23 @@ a:hover {
 
 /************************ buttons */
 
+.btn-dark:hover {
+    color: white;
+    background-color: #4f6173;
+    border: #4f6173;
+}
+
 .btn:hover {
-    font-size: 1.1rem;
     font-weight: bolder;
 }
 
 .btn-danger a {
-    color: black;
+    text-transform: uppercase;
+    color: white;
 }
 
 /************************ hyperlinks styling */
 
-.black-text {
-    color: black;
-    text-decoration: none;
-}
 
 .btn-signup {
     background-color: rgb(135, 189, 163);
@@ -141,13 +171,6 @@ a:hover {
     font-weight: 400;
     font-size: 25px;
     text-transform: uppercase;
-}
-
-.subtitle {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 3px;
-    font-size: 22px;
 }
 
 .card-460{
@@ -176,4 +199,25 @@ a:hover {
 .delete-box h3 {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+/************************ Comments Section */
+
+/************************ Comments FORM */
+#div_id_body label{
+    display: none;
+}
+
+/************************ Edit Recipe Page */
+.form-recipe label{
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 16px;
+    color: #4f6273;
+    margin-right: 10px;
+}
+
+.form-recipe input{
+    width: 100%;
 }

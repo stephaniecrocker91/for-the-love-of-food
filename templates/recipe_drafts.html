@@ -11,34 +11,35 @@
         {% for recipe in recipe_drafts %}
         <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-body">
+            <div class="card-body mini-card">
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
                 <img class="card-img-top"
-                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg" alt="Image of recipe">
+                  src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg"
+                  alt="Image of recipe">
                 {% else %}
                 <img class="card-img-top" src="{{ recipe.image.url }}" alt="Image of recipe">
                 {% endif %}
-                <div class="image-flash">
-                  <p class="author">Author: {{ recipe.author }}</p>
-                </div>
               </div>
               {% if user.is_authenticated %}
               {% if user.id == recipe.author.id %}
               <a href="{% url 'update_recipe' recipe.pk %}" class="post-link">
                 {% endif %}
                 {% endif %}
-                <h2 class="card-title">{{ recipe.title }}</h2>
-                <p class="card-text">{{ recipe.category }}</p>
+                <h2 class="card-title ">{{ recipe.title }}</h2>
               </a>
+              <div class="image-flash">
+                <p class="author"><span class="subtitle-2">CATEGORY: </span>{{ recipe.category }}</p>
+              </div>
               <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
               {% if user.is_authenticated %}
               {% if user.id == recipe.author.id %}
-              <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit black-text float-end"></i></a>
+              <div class="recipe-likes">
+                <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit card-icons float-end"></i></a>
+              </div>
               {% endif %}
               {% endif %}
-              <hr />
-              <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="far fa-heart"></i>
+              <p class="card-text text-muted h6 italic-light">{{ recipe.created_on}} <i class="far fa-heart"></i>
                 {{ recipe.number_of_likes }}</p>
             </div>
           </div>
@@ -54,18 +55,18 @@
 
 
 
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-        {% endif %}
-      </ul>
-    </nav>
-    {% endif %}
-  </div>
-  {% endblock %}
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+{% endblock %}

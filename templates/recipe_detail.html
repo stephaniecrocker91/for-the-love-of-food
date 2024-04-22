@@ -14,10 +14,10 @@
             {% endif %}
         </h1>
         <div class="padding-sides text-center">
-            <p class="author"><span>CATEGORY</span>: {{ recipe.category }}</p>
+            <p class="author"><span class="subtitle-2">CATEGORY</span>: {{ recipe.category }}</p>
         </div>
     </div>
-    <div class="container margin-top-bottom">
+    <div class="container margin-top-bottom-50">
         <div class="row g-0">
             <!--Recipe Img --------------------------------------------------------->
             <div class="d-none d-md-block col-md-6 masthead-image card-body mini-card card-460">
@@ -34,7 +34,7 @@
                 {% endif %}
                 <!--Recipe details --------------------------------------------------------->
                 <div class="padding-sides">
-                    <p class="author"><span>CREATED BY</span>: {{ recipe.author }}</p>
+                    <p class="author"><span class="subtitle-2">CREATED BY</span>: {{ recipe.author }}</p>
                 </div>
                 <p class="post-subtitle padding-sides italic-light">{{ recipe.created_on }}</p>
                 <div class="row padding-sides gap">
@@ -86,7 +86,7 @@
             <div class="col-md-6 masthead-text padding-sides">
                 <div class="col  mb-4  mt-3 left  top">
                     <div class="">
-                        <h3 class="subtitle">Ingredients: </h3>
+                        <h3 class="subtitle text-center">Ingredients</h3>
                         <p class="post-ingredients card-text">{{ recipe.ingredients | safe }}</p>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left top">
             <div class="card-body">
-                <h3 class="subtitle">Directions: </h3>
+                <h3 class="subtitle text-center">Directions</h3>
                 <p class="card-text ">{{ recipe.directions | safe}}</p>
 
             </div>
@@ -112,15 +112,15 @@
     </div>
     <div class="row">
         <div class="col card mb-4  mt-3 ">
-            <h3>Comments:</h3>
+            <h3 class="subtitle text-center" >Comments</h3>
             <div class="card-body">
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
+                    <p class="subtitle-2">
                         {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
+                        <p class=" text-muted font-weight-normal italic-light">
                             {{ comment.created_on }}
-                        </span> wrote:
+                        </p>
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
@@ -130,12 +130,12 @@
         <div class="col-md-8 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <h3 class="subtitle text-center" >Leave a comment</h3>
+                <p class="subtitle-2 margin-top-20">Posting as: <span class="italic-light">{{ user.username }}</span></p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark margin-top-20">Submit</button>
                 </form>
 
                 {% endif %}

@@ -4,15 +4,13 @@
 
 {% if user.is_authenticated %}
 {% if user.id == recipe.author.id %}
+<div class="light-banner">
+    <h1 class="edit-title text-center recipe-title">Edit your Recipe: </h1>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <div class="row">
-                <div class="col-md-8">
-                    <h1 class="edit-title">Edit your Recipe: </h1>
-                </div>
-            </div>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" class="form-recipe">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="btn btn-dark">UPDATE</button>

@@ -12,24 +12,35 @@
         
         <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-body">
+            <div class="card-body mini-card">
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
                 <img class="card-img-top" src="https://lemontrend.com/vz01pro1/wp-content/uploads/2017/07/pasta-carbonara-recipe-featured-980x567.jpg">
                 {% else %}
                 <img class="card-img-top" src="{{ recipe.image.url }}" alt="Image of recipe">
                 {% endif %}
-                <div class="image-flash">
-                  <p class="author">Author: {{ recipe.author }}</p>
+                <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+                  <h2 class="card-title padding-sides">{{ recipe.title }}</h2>
+                </a>
+                <div class="padding-sides">
+                  <p class="author"><span class="subtitle-2">CREATED BY</span>:   {{ recipe.author }}</p>
+              </div>
+              </div>
+              <p class="padding-sides italic-light card-text text-muted h6">"{{ recipe.shortDescription }}..."</p>
+              <div class="recipe-likes">
+                <div>
+                  <i class="far fa-heart"></i>
+                  {{ recipe.number_of_likes }}
+                </div>
+                <div>
+                  <i class="far fa-bookmark"></i>
+                  {{ recipe.number_of_favourites }}
+                </div>
+                <div>
+                  <i class="far fa-comments"></i>
+                  {{ total_comments }}
                 </div>
               </div>
-              <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                <h2 class="card-title">{{ recipe.title }}</h2>
-                <p class="card-text">{{ recipe.category }}</p>
-              </a>
-              <hr />
-              <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="far fa-heart"></i>
-                {{ recipe.number_of_likes }}</p>
             </div>
           </div>
         </div>
