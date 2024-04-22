@@ -250,6 +250,13 @@ h2 {
 }
 
 /************************ MEDIA QUERIES */
+@media (max-width: 1200px) {
+    .mini-card {
+        height: 530px;
+    }
+}
+
+
 @media (max-width: 765px) {
     .mini-card {
         width: 90vw;
