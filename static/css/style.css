@@ -249,6 +249,16 @@ h2 {
     width: auto;
 }
 
+/************************ Alerts */
+
+.alert-success{
+    background-color:#4f6273;
+    color: white;
+}
+.alert-success button{
+    color: white;
+}
+
 /************************ MEDIA QUERIES */
 @media (max-width: 1200px) {
     .mini-card {
