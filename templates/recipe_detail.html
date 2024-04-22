@@ -5,20 +5,39 @@
 {% load crispy_forms_tags %}
 
 <div class="masthead">
-    <div class="container">
+    <div class="light-banner">
+        <h1 class="post-title recipe-title text-center"> {{ recipe.title }}
+            {% if user.is_authenticated %}
+            {% if user.id == recipe.author.id %}
+            <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit"></i></a></span></small>
+            {% endif %}
+            {% endif %}
+        </h1>
+        <div class="padding-sides text-center">
+            <p class="author"><span>CATEGORY</span>: {{ recipe.category }}</p>
+        </div>
+    </div>
+    <div class="container margin-top-bottom">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title recipe-title"> {{ recipe.title }}
-                    {% if user.is_authenticated %}
-                    {% if user.id == recipe.author.id %}
-                    <small><span><a href="{% url 'update_recipe' recipe.pk %}"><i
-                                    class="fas fa-edit"></i></a></span></small>
-                    {% endif %}
-                    {% endif %}
-                </h1>
-                <p class="post-subtitle"> <span class="bold"> Category: </span>{{ recipe.category }}</p>
-                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
-                <div class="row">
+            <!--Recipe Img --------------------------------------------------------->
+            <div class="d-none d-md-block col-md-6 masthead-image card-body mini-card card-460">
+                {% if "placeholder" in recipe.image.url %}
+                <div class="image-container">
+                    <img class="card-img-top"
+                        src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272"
+                        alt="Image of recipe">
+                </div>
+                {% else %}
+                <div class="image-container">
+                    <img class="card-img-top" src="{{ recipe.image.url }}" alt="Image of Recipe">
+                </div>
+                {% endif %}
+                <!--Recipe details --------------------------------------------------------->
+                <div class="padding-sides">
+                    <p class="author"><span>CREATED BY</span>: {{ recipe.author }}</p>
+                </div>
+                <p class="post-subtitle padding-sides italic-light">{{ recipe.created_on }}</p>
+                <div class="row padding-sides gap">
                     <div class="col-1">
                         {% if user.is_authenticated %}
                         <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
@@ -40,7 +59,6 @@
                         {% if user.is_authenticated %}
                         <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
                             {% csrf_token %}
-
                             {% if faved %}
                             <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
                                     class="fas fa-bookmark"></i></button>
@@ -62,26 +80,21 @@
                         {% endwith %}
                     </div>
                 </div>
+            </div>
+            <!--End recipe details --------------------------------------------------------->
+
+            <div class="col-md-6 masthead-text padding-sides">
                 <div class="col  mb-4  mt-3 left  top">
-                    <div class="card-body">
+                    <div class="">
                         <h3 class="subtitle">Ingredients: </h3>
                         <p class="post-ingredients card-text">{{ recipe.ingredients | safe }}</p>
                     </div>
                 </div>
             </div>
 
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in recipe.image.url %}
-                <img
-                    src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe_writing_700-94d33d1.jpg?resize=960,872?quality=90&webp=true&resize=300,272" alt="Image of recipe">
-                {% else %}
-                <img src="{{ recipe.image.url }}" alt="Image of Recipe">
-                {% endif %}
-            </div>
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left top">
