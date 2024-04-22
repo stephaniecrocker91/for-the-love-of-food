@@ -34,18 +34,21 @@ header {
     padding-bottom: 40px;
 }
 
+#nav-logo{
+    background-color: #f9f9f9;
+}
+
 #nav-title {
     letter-spacing: 6px;
     font-weight: 300;
-
 }
 
 .nav-link:hover {
-    font-size: larger;
+
 }
 
 .navbar-brand:hover {
-    font-size: 1.5rem;
+
 }
 
 /************************ header and navbar */
