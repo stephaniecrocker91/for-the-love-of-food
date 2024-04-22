@@ -5,17 +5,14 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+<div class="light-banner">
+  <h3 class="edit-title text-center recipe-title">{% trans "Sign Out" %}</h3>
+</div>
 <div class="green-box">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <div class="row">
-          <div class="col-md-8 mt-3">
-
-            <h3>{% trans "Sign Out" %}</h3>
-          </div>
-        </div>
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+        <p class="text-center">{% trans 'Are you sure you wish to sign out?' %}</p>
       </div>
     </div>
     <div class="row">
@@ -25,7 +22,7 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button type="submit" class="btn btn-signup right">{% trans 'Sign Out' %}</button>
+          <button type="submit" class="btn btn-signup ">{% trans 'Sign Out' %}</button>
         </form>
       </div>
     </div>

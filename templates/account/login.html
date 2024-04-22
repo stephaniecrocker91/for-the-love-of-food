@@ -6,25 +6,23 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<div class="light-banner">
+  <h3 class="edit-title text-center recipe-title">{% trans "Sign In" %}</h3>
+</div>
+
 <div class="green-box">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-
-        <div class="row">
-          <div class="col-md-8 mt-3">
-            <h3>{% trans "Sign In" %}</h3>
-          </div>
-        </div>
-
-        <p>{% blocktrans %}Welcome to For the Love of Food Blog. To leave a comment,
-          like ir create a post, please log in. If you have not yet created an account, then
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <p class="text-center">{% blocktrans %}Welcome to For the Love of Food Blog. To leave a comment,
+          like or create a post, please log in. If you have not yet created an account, then
+          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <form class="login" method="POST" action="{% url 'account_login' %}">
+        <form class="login form-recipe" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form.as_p }}
           {% if redirect_field_value %}

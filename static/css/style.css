@@ -8,7 +8,7 @@ body {
 
 }
 
-.padding-sides{
+.padding-sides {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -17,11 +17,11 @@ body {
     margin: 50px auto;
 }
 
-.margin-top-20{
+.margin-top-20 {
     margin-top: 20px;
 }
 
-.gap{
+.gap {
     gap: 20px;
     justify-content: flex-end;
     margin-right: 0px;
@@ -33,7 +33,7 @@ a {
 }
 
 hr {
-    height: 3px!important;
+    height: 3px !important;
     color: #4f6273;
 }
 
@@ -44,7 +44,7 @@ h2 {
     font-size: 20px;
 }
 
-.italic-light{
+.italic-light {
     font-style: italic;
     font-weight: 300;
     letter-spacing: .3px;
@@ -56,7 +56,7 @@ h2 {
     font-weight: 600;
     letter-spacing: 3px;
     font-size: 22px;
-    color:#4f6273;
+    color: #4f6273;
 }
 
 .subtitle-2 {
@@ -65,15 +65,15 @@ h2 {
     text-transform: uppercase;
 }
 
-.light-banner{
+.light-banner {
     background-color: #4f6173;
     color: white;
     padding: 20px 0;
-}    
+}
 
 /************************ NAV BAR */
 
-#nav-logo{
+#nav-logo {
     background-color: #f9f9f9;
 }
 
@@ -84,7 +84,7 @@ h2 {
 }
 
 .bg-dark {
-    background-color: black!important;
+    background-color: black !important;
 }
 
 /************************ Recipe Cards */
@@ -99,30 +99,33 @@ h2 {
     padding: 2rem 2rem;
 }
 
-.mini-card{
+.mini-card {
     overflow: hidden;
     padding: 0;
     height: 480px;
 }
 
 .card-title:hover {
-    color: #000000a1!important;
+    color: #000000a1 !important;
 }
-.recipe-likes i:hover{
+
+.recipe-likes i:hover {
     color: black;
 }
 
-.card-img, .card-img-bottom, .card-img-top {
+.card-img,
+.card-img-bottom,
+.card-img-top {
     object-fit: cover;
     height: 300px;
     margin-bottom: 20px;
 }
 
-.author{
+.author {
     text-transform: capitalize;
 }
 
-.recipe-likes{
+.recipe-likes {
     position: absolute;
     bottom: 10px;
     right: 20px;
@@ -131,19 +134,27 @@ h2 {
     gap: 10px;
 }
 
-.card-icons{
+.card-icons {
     color: #6c757d !important;
 }
 
 /************************ buttons */
 .green-box {
-    background-color: rgb(187, 223, 205, 0.7);
+    background-color: white;
     padding-bottom: 40px;
 }
 
 /************************ buttons */
 
-.btn-dark:hover {
+.btn-signup {
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+    text-transform: uppercase;
+}
+
+.btn-dark:hover,
+.btn-signup:hover {
     color: white;
     background-color: #4f6173;
     border: #4f6173;
@@ -158,13 +169,6 @@ h2 {
     color: white;
 }
 
-/************************ hyperlinks styling */
-
-
-.btn-signup {
-    background-color: rgb(135, 189, 163);
-}
-
 
 /************************ Recipe details styling */
 .recipe-title {
@@ -173,11 +177,12 @@ h2 {
     text-transform: uppercase;
 }
 
-.card-460{
+.card-460 {
     height: 460px;
 }
+
 .btn-like,
-.btn-fave{
+.btn-fave {
     border: none;
     background-color: white;
 }
@@ -204,12 +209,12 @@ h2 {
 /************************ Comments Section */
 
 /************************ Comments FORM */
-#div_id_body label{
+#div_id_body label {
     display: none;
 }
 
 /************************ Edit Recipe Page */
-.form-recipe label{
+.form-recipe label {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
@@ -218,6 +223,11 @@ h2 {
     margin-right: 10px;
 }
 
-.form-recipe input{
+.form-recipe input {
     width: 100%;
+}
+
+/************************ Login Logout Page */
+.login.form-recipe input {
+    width: auto;
 }
