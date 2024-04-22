@@ -8,6 +8,10 @@ body {
 
 }
 
+.flex{
+    display: flex;
+}
+
 .padding-sides {
     padding-left: 20px;
     padding-right: 20px;
@@ -69,6 +73,15 @@ h2 {
     background-color: #4f6173;
     color: white;
     padding: 20px 0;
+}
+
+.light-banner i {
+    color: white;
+    margin-left: 10px;
+}
+
+.light-banner i:hover {
+    color: rgba(255, 255, 255, 0.559);
 }
 
 /************************ NAV BAR */
@@ -136,6 +149,10 @@ h2 {
 
 .card-icons {
     color: #6c757d !important;
+}
+
+.card-body .fa-edit:hover{
+    color: #000000a1 !important;
 }
 
 /************************ buttons */
@@ -231,3 +248,21 @@ h2 {
 .login.form-recipe input {
     width: auto;
 }
+
+/************************ MEDIA QUERIES */
+@media (max-width: 765px) {
+    .mini-card {
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .recipe-likes {
+        right: 6vw;
+        gap: 15px;
+    }
+
+    .no-card-mobile{
+        box-shadow: 0 0 15px -3px transparent;
+    }
+
+}
+
