@@ -122,7 +122,7 @@ h2 {
     color: #000000a1 !important;
 }
 
-.recipe-likes i:hover {
+.recipe-likes i.fa-edit:hover {
     color: black;
 }
 
@@ -197,11 +197,17 @@ h2 {
 .card-460 {
     height: 460px;
 }
+.active-like-fave-comment{
+    justify-content: center;
+}
 
-.btn-like,
-.btn-fave {
+.active-like-fave-comment .text-secondary{
+    color: white!important;
+}
+
+.btn-like, .btn-fave {
     border: none;
-    background-color: white;
+    background-color: #4f6273;
 }
 
 .masthead-image>img {

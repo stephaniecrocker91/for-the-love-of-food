@@ -109,7 +109,11 @@ class RecipeLike(View):
             recipe.likes.remove(request.user)
         else:
             recipe.likes.add(request.user)
-        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+                # Get the referer URL or fallback to a default page
+        referer = request.META.get('HTTP_REFERER', '/')
+        
+        # Redirect back to the referer URL with a query parameter indicating refresh
+        return HttpResponseRedirect(referer + '?refresh=true')
 
 
 class Favourite(View):

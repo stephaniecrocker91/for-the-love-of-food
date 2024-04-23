@@ -24,34 +24,34 @@
                 {% endif %}
               </div>
               <div class="flex">
-              <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link ">
-                <h2 class="card-title padding-sides link-feature">{{ recipe.title }}</h2>
-              </a>
-              <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
-              {% if user.is_authenticated %}
-              {% if user.id == recipe.author.id %}
-              <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit float-end"></i></a>
-              {% endif %}
-              {% endif %}
-            </div>
+                <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link ">
+                  <h2 class="card-title padding-sides link-feature">{{ recipe.title }}</h2>
+                </a>
+                <!-- {% if self.user_id = recipe.user_id} AUTHENTICATE ITS USERS POST BEFORE GIVING EDITING OPTION! -->
+                {% if user.is_authenticated %}
+                {% if user.id == recipe.author.id %}
+                <a href="{% url 'update_recipe' recipe.pk %}"><i class="fas fa-edit float-end"></i></a>
+                {% endif %}
+                {% endif %}
+              </div>
               <div class="padding-sides">
                 <p class="author"><span class="subtitle-2">CREATED BY</span>: {{ recipe.author }}</p>
               </div>
               <p class="padding-sides italic-light card-text text-muted h6">"{{ recipe.shortDescription }}..."</p>
               <div class="recipe-likes">
                 <div>
-                  <i class="far fa-heart card-icons"></i>
+                  <i class="far fa-heart"></i>
                   {{ recipe.number_of_likes }}
                 </div>
                 <div>
-                  <i class="far fa-bookmark card-icons"></i>
+                  <i class="far fa-bookmark"></i>
                   {{ recipe.number_of_favourites }}
                 </div>
                 <div>
-                  <i class="far fa-comments card-icons"></i>
+                  <i class="far fa-comments"></i>
                   {{ total_comments }}
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
         </div>

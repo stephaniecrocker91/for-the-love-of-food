@@ -16,6 +16,49 @@
         <div class="padding-sides text-center">
             <p class="author"><span class="subtitle-2">CATEGORY</span>: {{ recipe.category }}</p>
         </div>
+        <div class="row active-like-fave-comment">
+            <div class="col-1">
+                {% if user.is_authenticated %}
+                <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
+                            class="fas fa-heart"></i></button>
+                    {% else %}
+                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
+                            class="far fa-heart"></i></button>
+                    {% endif %}
+                </form>
+                {% else %}
+                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                {% endif %}
+                <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
+            </div>
+            <div class="col-1">
+                {% if user.is_authenticated %}
+                <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
+                    {% csrf_token %}
+                    {% if faved %}
+                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                            class="fas fa-bookmark"></i></button>
+                    {% else %}
+                    <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
+                            class="far fa-bookmark"></i></button>
+                    {% endif %}
+                </form>
+                {% else %}
+                <span class="text-secondary"><i class="far fa-bookmark"></i></span>
+                {% endif %}
+                <span class="text-secondary"> {{ recipe.number_of_favourites }}</span>
+            </div>
+            <div class="col-1">
+                {% with comments.count as total_comments %}
+                <strong class="text-secondary"><i class="far fa-comments"></i>
+                    {{ total_comments }}
+                </strong>
+                {% endwith %}
+            </div>
+        </div>
     </div>
     <div class="container margin-top-bottom-50">
         <div class="row g-0">
@@ -37,49 +80,6 @@
                     <p class="author"><span class="subtitle-2">CREATED BY</span>: {{ recipe.author }}</p>
                 </div>
                 <p class="post-subtitle padding-sides italic-light">{{ recipe.created_on }}</p>
-                <div class="row padding-sides gap">
-                    <div class="col-1">
-                        {% if user.is_authenticated %}
-                        <form method="POST" class="d-inline" action="{% url 'recipe_like' recipe.slug %}">
-                            {% csrf_token %}
-                            {% if liked %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
-                                    class="fas fa-heart"></i></button>
-                            {% else %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-like"><i
-                                    class="far fa-heart"></i></button>
-                            {% endif %}
-                        </form>
-                        {% else %}
-                        <span class="text-secondary"><i class="far fa-heart"></i></span>
-                        {% endif %}
-                        <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
-                    </div>
-                    <div class="col-1">
-                        {% if user.is_authenticated %}
-                        <form method="POST" class="d-inline" action="{% url 'favourites' recipe.slug %}">
-                            {% csrf_token %}
-                            {% if faved %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
-                                    class="fas fa-bookmark"></i></button>
-                            {% else %}
-                            <button type="submit" name="recipepost_id" value="{{recipe.slug}}" class="btn-fave"><i
-                                    class="far fa-bookmark"></i></button>
-                            {% endif %}
-                        </form>
-                        {% else %}
-                        <span class="text-secondary"><i class="far fa-bookmark"></i></span>
-                        {% endif %}
-                        <span class="text-secondary"> {{ recipe.number_of_favourites }}</span>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            {{ total_comments }}
-                        </strong>
-                        {% endwith %}
-                    </div>
-                </div>
             </div>
             <!--End recipe details --------------------------------------------------------->
 
